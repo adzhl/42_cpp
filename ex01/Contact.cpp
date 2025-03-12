@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:09:53 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/12 13:20:23 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:57:35 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,18 @@ int main()
         std::getline(std::cin, input);
 
         if (input == "ADD")
+        {
             myContact.setContact();
+            system("clear");
+            std::cout << "Contact Added Successfully!\n";
+
+        }
         else if (input == "SEARCH")
             myContact.getContact();
         else if (input == "EXIT")
             break;
-        
-        system("clear");
+        else
+            std::cout << "Invalid Command\nUse ADD, SEARCH or EXIT only\n";
     }
     return (0);
 }
