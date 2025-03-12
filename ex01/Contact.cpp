@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:09:53 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/12 12:46:49 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:20:23 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@ void Contact::setContact()
 {
     std::cout << "Enter First Name: ";
     std::getline(std::cin, first_name);
+
     std::cout << "Enter Last Name: ";
     std::getline(std::cin, last_name);
+
     std::cout << "Enter Nickname: ";
     std::getline(std::cin, nickname);
+
     std::cout << "Enter Phone Number: ";
     std::getline(std::cin, phone_number);
+    
     std::cout << "Enter Darkest Secret: ";
     std::getline(std::cin, darkest_secret);
 }
