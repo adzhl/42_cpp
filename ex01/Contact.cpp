@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:09:53 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/13 13:41:46 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/13 13:47:03 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,12 @@ void Contact::getContact() const
 std::string formatField(const std::string &field)
 {
     if (field.length() > 10)
-        return (field.substr(0,9) + ".");
+        return (field.substr(0, 9) + ".");
     return (field);
 }
 
 void Contact::displaySummary(int index) const
 {
-    std::cout << std::setw(10) << "Index" << "|"
-                << std::setw(10) << "First Name" << "|"
-                << std::setw(10) << "Last Name" << "|"
-                << std::setw(10) << "Nickname" << "\n";
-
-    std::cout << "---------------------------------------------\n";
-
     std::cout << std::setw(10) << index << "|"
                 << std::setw(10) << formatField(_firstName) << "|"
                 << std::setw(10) << formatField(_lastName) << "|"
