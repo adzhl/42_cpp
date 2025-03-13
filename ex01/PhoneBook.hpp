@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 10:03:16 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/13 13:14:33 by abinti-a         ###   ########.fr       */
+/*   Created: 2025/03/13 08:34:55 by abinti-a          #+#    #+#             */
+/*   Updated: 2025/03/13 13:13:41 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
 # include <iomanip>
+# include "Contact.hpp"
 
-class Contact {
+class PhoneBook {
     private:
-        std::string _firstName;
-        std::string _lastName;
-        std::string _nickname;
-        std::string _phoneNumber;
-        std::string _darkestSecret;
-
+        Contact _array[8];
+        int     _index;
+        int     _contactCount;
+    
     public:
-        void setContact();
-        void getContact() const;
-        void displaySummary(int index) const;
+        PhoneBook();
+        void    addContact();
+        void    displayContacts() const;
 };
 
 #endif

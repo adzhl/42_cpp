@@ -6,62 +6,65 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:09:53 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/12 14:57:35 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/13 13:41:46 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 void Contact::setContact()
 {
     std::cout << "Enter First Name: ";
-    std::getline(std::cin, first_name);
+    std::getline(std::cin, _firstName);
 
     std::cout << "Enter Last Name: ";
-    std::getline(std::cin, last_name);
+    std::getline(std::cin, _lastName);
 
     std::cout << "Enter Nickname: ";
-    std::getline(std::cin, nickname);
+    std::getline(std::cin, _nickname);
 
     std::cout << "Enter Phone Number: ";
-    std::getline(std::cin, phone_number);
+    std::getline(std::cin, _phoneNumber);
     
     std::cout << "Enter Darkest Secret: ";
-    std::getline(std::cin, darkest_secret);
-}
+    std::getline(std::cin, _darkestSecret);
 
-void Contact::getContact()
-{
-    std::cout << "First Name: " << first_name << '\n';
-    std::cout << "Last Name: " << last_name << '\n';
-    std::cout << "Nickname: " << nickname << '\n';
-    std::cout << "Phone Number: " << phone_number << '\n';
-    std::cout << "Darkest Secret: " << darkest_secret << '\n';
-}
-
-int main()
-{
-    Contact myContact;
-    std::string input;
-
-    while (true)
+    if (_firstName.empty() || _lastName.empty() || _nickname.empty() || 
+        _phoneNumber.empty() || _darkestSecret.empty())
     {
-        std::cout << "Enter Command (ADD, SEARCH, EXIT): ";
-        std::getline(std::cin, input);
-
-        if (input == "ADD")
-        {
-            myContact.setContact();
-            system("clear");
-            std::cout << "Contact Added Successfully!\n";
-
-        }
-        else if (input == "SEARCH")
-            myContact.getContact();
-        else if (input == "EXIT")
-            break;
-        else
-            std::cout << "Invalid Command\nUse ADD, SEARCH or EXIT only\n";
+        system("clear");
+        std::cout << "Error: All fields must be filled. Try again!\n";
+        setContact();
     }
-    return (0);
+}
+
+void Contact::getContact() const
+{
+    std::cout << "First Name: " << _firstName << '\n';
+    std::cout << "Last Name: " << _lastName << '\n';
+    std::cout << "Nickname: " << _nickname << '\n';
+    std::cout << "Phone Number: " << _phoneNumber << '\n';
+    std::cout << "Darkest Secret: " << _darkestSecret << '\n';
+}
+
+std::string formatField(const std::string &field)
+{
+    if (field.length() > 10)
+        return (field.substr(0,9) + ".");
+    return (field);
+}
+
+void Contact::displaySummary(int index) const
+{
+    std::cout << std::setw(10) << "Index" << "|"
+                << std::setw(10) << "First Name" << "|"
+                << std::setw(10) << "Last Name" << "|"
+                << std::setw(10) << "Nickname" << "\n";
+
+    std::cout << "---------------------------------------------\n";
+
+    std::cout << std::setw(10) << index << "|"
+                << std::setw(10) << formatField(_firstName) << "|"
+                << std::setw(10) << formatField(_lastName) << "|"
+                << std::setw(10) << formatField(_nickname) << '\n';
 }
