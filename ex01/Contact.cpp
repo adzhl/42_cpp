@@ -6,11 +6,18 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:09:53 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/13 13:47:03 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/14 13:32:08 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+bool whiteSpace(std::string input)
+{
+    for (std::size_t i = 0; i < input.length(); i++)
+        return (std::isspace(input[i]));
+    return (0);
+}
 
 void Contact::setContact()
 {
@@ -30,7 +37,8 @@ void Contact::setContact()
     std::getline(std::cin, _darkestSecret);
 
     if (_firstName.empty() || _lastName.empty() || _nickname.empty() || 
-        _phoneNumber.empty() || _darkestSecret.empty())
+        _phoneNumber.empty() || _darkestSecret.empty() || whiteSpace(_firstName) || whiteSpace(_lastName) || whiteSpace(_nickname) || 
+        whiteSpace(_phoneNumber) || whiteSpace(_darkestSecret))
     {
         system("clear");
         std::cout << "Error: All fields must be filled. Try again!\n";

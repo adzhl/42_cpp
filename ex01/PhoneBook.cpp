@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 10:03:23 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/14 11:52:04 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/14 13:13:34 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,16 @@ void PhoneBook::promptIndex()
     if (input.length() == 1 && input[0] > '0' && input[0] < '9')
     {
         int input_value = input[0] - '0';
+        if (input_value > _contactCount)
+        {
+            std::cout << "Error: Contact doesn't exist!\n";
+            return;
+        }
         system("clear");
         _array[input_value - 1].getContact();
     }
     else
-        std::cout << "Error: Index doesn't exist!. Enter numbers between 1 to 9 only\n";
+        std::cout << "Error: Index doesn't exist. Enter numbers between 1 to 9 only\n";
 }
 
 void PhoneBook::displayContacts()
