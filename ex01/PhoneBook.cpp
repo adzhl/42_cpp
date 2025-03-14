@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 10:03:23 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/13 14:12:26 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/14 11:52:04 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,27 @@ void PhoneBook::addContact()
         _contactCount++;
     
     _array[_index].setContact();
-    _index = (_index % 8) + 1;
+    _index = (_index + 1 ) % 8;
 }
 
-void PhoneBook::displayContacts() const
+void PhoneBook::promptIndex()
+{
+    std::string input;
+
+    std::cout << "Enter contact index: ";
+    std::getline(std::cin, input);
+
+    if (input.length() == 1 && input[0] > '0' && input[0] < '9')
+    {
+        int input_value = input[0] - '0';
+        system("clear");
+        _array[input_value - 1].getContact();
+    }
+    else
+        std::cout << "Error: Index doesn't exist!. Enter numbers between 1 to 9 only\n";
+}
+
+void PhoneBook::displayContacts()
 {
     if (_contactCount == 0)
     {
@@ -43,9 +60,7 @@ void PhoneBook::displayContacts() const
     std::cout << "---------------------------------------------\n";
     
     for (int i = 0; i < _contactCount; i++)
-    {
         _array[i].displaySummary(i + 1);
-        std::cout << "Value i after: " << i << "\n";
-        std::cout << "contact count after: " << _contactCount << "\n";
-    }
+
+    promptIndex();
 }
