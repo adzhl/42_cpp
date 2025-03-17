@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 10:03:23 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/17 10:25:27 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/17 10:35:37 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    PhoneBook::promptIndex()
     std::cout << "Enter contact index: ";
     std::getline(std::cin, input);
 
-    if (input.length() == 1 && input[0] > '0' && input[0] < '9')
+    if (input.length() == 1 && input[0] >= '1' && input[0] <= '8')
     {
         int input_value = input[0] - '0';
         if (input_value > _contactCount)
