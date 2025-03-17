@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 10:03:16 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/17 10:10:16 by abinti-a         ###   ########.fr       */
+/*   Created: 2025/03/17 10:08:51 by abinti-a          #+#    #+#             */
+/*   Updated: 2025/03/17 10:13:20 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef UTILS_HPP
+# define UTILS_HPP
 
 # include <iostream>
 # include <string>
-# include <iomanip>
-# include "Utils.hpp"
+# include <cstdlib>
 
-class Contact {
-    private:
-        std::string _firstName;
-        std::string _lastName;
-        std::string _nickname;
-        std::string _phoneNumber;
-        std::string _darkestSecret;
-
-    public:
-        void setContact();
-        void getContact() const;
-        void displaySummary(int index) const;
-};
+bool        whiteSpace(std::string input);
+bool        isValid(std::string input, int flag);
+bool        checkInput(const std::string &first, const std::string &last, const std::string &nickname, const std::string &phone, const std::string &secret);
+std::string formatField(const std::string &field);
 
 #endif
