@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:09:53 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/14 13:32:08 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/16 10:02:54 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 bool whiteSpace(std::string input)
 {
-    for (std::size_t i = 0; i < input.length(); i++)
-        return (std::isspace(input[i]));
-    return (0);
+    return (std::isspace(input[0]));
 }
 
 void Contact::setContact()
