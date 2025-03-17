@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 10:03:23 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/17 10:14:41 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/17 10:25:27 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ PhoneBook::PhoneBook()
     _contactCount = 0;
 }
 
-void PhoneBook::addContact()
+void    PhoneBook::addContact()
 {
     if (_contactCount < 8)
         _contactCount++;
@@ -27,7 +27,7 @@ void PhoneBook::addContact()
     _index = (_index + 1 ) % 8;
 }
 
-void PhoneBook::promptIndex()
+void    PhoneBook::promptIndex()
 {
     std::string input;
 
@@ -49,7 +49,7 @@ void PhoneBook::promptIndex()
         std::cout << "Error: Index doesn't exist. Enter numbers from 1 to 8 only\n";
 }
 
-void PhoneBook::displayContacts()
+void    PhoneBook::displayContacts()
 {
     if (_contactCount == 0)
     {

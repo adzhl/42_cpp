@@ -6,13 +6,13 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 10:08:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/17 10:10:23 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/17 10:31:50 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Utils.hpp"
 
-bool checkInput(const std::string &first, const std::string &last, const std::string &nickname, const std::string &phone, const std::string &secret)
+bool    checkInput(const std::string &first, const std::string &last, const std::string &nickname, const std::string &phone, const std::string &secret)
 {
     if (whiteSpace(first) || whiteSpace(last) || whiteSpace(nickname) || 
         whiteSpace(phone) || whiteSpace(secret))
@@ -22,14 +22,14 @@ bool checkInput(const std::string &first, const std::string &last, const std::st
         return (false);
     }
 
-    if (!isValid(first, 0) || !isValid(last, 0))
+    if (!isValid(first, NAME) || !isValid(last, NAME))
     {
         system("clear");
         std::cout << "Error: Name must be alphabetical. Try again!\n";
         return (false);
     }
 
-    if (!isValid(phone, 1))
+    if (!isValid(phone, PHONE))
     {
         system("clear");
         std::cout << "Error: Phone number must be numerical. Try again!\n";
@@ -39,7 +39,7 @@ bool checkInput(const std::string &first, const std::string &last, const std::st
     return (true);
 }
 
-bool whiteSpace(std::string input)
+bool    whiteSpace(std::string input)
 {
     for (size_t i = 0; i < input.length(); i++)
     {
@@ -49,13 +49,13 @@ bool whiteSpace(std::string input)
     return (true);
 }
 
-bool isValid(std::string input, int flag)
+bool    isValid(std::string input, InputType type)
 {
     for (size_t i = 0; i < input.length(); i++)
     {
-        if (flag == 0 && !std::isalpha(input[i]))
+        if (type == NAME && !std::isalpha(input[i]))
             return (false);
-        else if (flag == 1 && !std::isdigit(input[i]))
+        else if (type == PHONE && !std::isdigit(input[i]))
             return (false);
     }
     return (true);
