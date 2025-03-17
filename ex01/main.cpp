@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 08:34:26 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/13 10:27:28 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/17 12:18:30 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int main()
         std::cout << "Enter Command (ADD, SEARCH, EXIT): ";
         std::getline(std::cin, input);
 
-        if (input == "ADD")
+        if (input == "" || input == "EXIT")
+            exitCommand();
+        else if (input == "ADD")
             addCommand(myPhoneBook);
         else if (input == "SEARCH")
             searchCommand(myPhoneBook);
-        else if (input == "EXIT")
-            exitCommand();
         else
             wrongCommand();
     }
