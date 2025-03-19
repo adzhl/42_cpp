@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 08:34:26 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/17 12:22:33 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/19 13:04:21 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    PhoneBook myPhoneBook;
+    PhoneBook   myPhoneBook;
     std::string input;
 
     system("clear");
