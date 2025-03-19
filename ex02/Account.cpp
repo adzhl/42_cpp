@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 08:16:17 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/19 11:25:39 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/19 11:43:09 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void    Account::displayAccountsInfos()
                 << "\n";
 }
 
+// Display account status
 void    Account::displayStatus() const
 {
     _displayTimestamp();
