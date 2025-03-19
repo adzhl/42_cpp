@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 08:16:17 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/19 11:43:09 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/19 12:43:10 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ Account::Account(int initial_deposit) : _accountIndex(_nbAccounts++), _amount(in
     _totalAmount += _amount;
     
     _displayTimestamp();
-    std::cout   << "index:" << _accountIndex
-                << ";amount:" << _amount 
+    std::cout   << "index:"     << _accountIndex
+                << ";amount:"   << _amount 
                 << ";created\n";
 }
 
@@ -56,8 +56,8 @@ Account::Account(int initial_deposit) : _accountIndex(_nbAccounts++), _amount(in
 Account::~Account()
 {
     _displayTimestamp();
-    std::cout   << "index:" << _accountIndex
-                << ";amount:" << _amount 
+    std::cout   << "index:"     << _accountIndex
+                << ";amount:"   << _amount 
                 << ";closed\n";
 }
 
@@ -65,10 +65,10 @@ Account::~Account()
 void    Account::displayAccountsInfos()
 {
     _displayTimestamp();
-    std::cout   << "accounts:" << _nbAccounts
-                << ";total:" << _totalAmount
-                << ";deposits:" << _totalNbDeposits
-                << ";withdrawals:" << _totalNbWithdrawals
+    std::cout   << "accounts:"      << _nbAccounts
+                << ";total:"        << _totalAmount
+                << ";deposits:"     << _totalNbDeposits
+                << ";withdrawals:"  << _totalNbWithdrawals
                 << "\n";
 }
 
@@ -76,25 +76,25 @@ void    Account::displayAccountsInfos()
 void    Account::displayStatus() const
 {
     _displayTimestamp();
-    std::cout   << "index:" << _accountIndex
-                << ";amount:" << _amount
-                << ";deposits:" << _nbDeposits
-                << ";withdrawals:" << _nbWithdrawals
+    std::cout   << "index:"         << _accountIndex
+                << ";amount:"       << _amount
+                << ";deposits:"     << _nbDeposits
+                << ";withdrawals:"  << _nbWithdrawals
                 << "\n";
 }
 
 void    Account::makeDeposit(int deposit)
 {
     _displayTimestamp();
-    std::cout   << "index:" << _accountIndex
+    std::cout   << "index:"     << _accountIndex
                 << ";p_amount:" << _amount
-                << ";deposit:" << deposit;
+                << ";deposit:"  << deposit;
 
     _amount += deposit;
     _nbDeposits++;
 
-    std::cout   << ";amount:" << _amount
-                << ";nb_deposits:" << _nbDeposits
+    std::cout   << ";amount:"       << _amount
+                << ";nb_deposits:"  << _nbDeposits
                 << "\n";
 
     _totalAmount += deposit;
@@ -104,7 +104,7 @@ void    Account::makeDeposit(int deposit)
 bool    Account::makeWithdrawal(int withdrawal)
 {
     _displayTimestamp();
-    std::cout   << "index:" << _accountIndex
+    std::cout   << "index:"     << _accountIndex
                 << ";p_amount:" << _amount;
 
     if (_amount < withdrawal)
@@ -115,9 +115,9 @@ bool    Account::makeWithdrawal(int withdrawal)
     _amount -= withdrawal;
     _nbWithdrawals++;
 
-    std::cout   << ";withdrawal:" << withdrawal
-                << ";amount:" << _amount
-                << ";nb_withdrawals:" << _nbWithdrawals
+    std::cout   << ";withdrawal:"       << withdrawal
+                << ";amount:"           << _amount
+                << ";nb_withdrawals:"   << _nbWithdrawals
                 << "\n";
     
     _totalAmount -= withdrawal;
