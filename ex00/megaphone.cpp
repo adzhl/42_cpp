@@ -6,18 +6,20 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:52:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/10 12:26:40 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/19 12:33:33 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 
-void capitalize(int i, int argc, char *arg)
+void capitalize(int i, int argc, std::string arg)
 {
-    if (!*arg)
+    if (arg.empty())
         return;
-    for (; *arg; arg++)
-        std::cout << (char) std::toupper(* arg);
+    for (size_t j = 0; j < arg.length(); j++)
+        arg[j] = std::toupper(arg[j]);
+    std::cout << arg;
     if (i < argc - 1)
         std::cout << " ";
 }
@@ -29,7 +31,7 @@ int main(int argc, char **argv)
     else
     {
         for (int i = 1; i < argc; i++)
-            capitalize(i, argc, argv[i]);
+            capitalize(i, argc, std::string (argv[i]));
         std::cout << std::endl;
     }
     return (0);
