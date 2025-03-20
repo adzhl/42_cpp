@@ -6,17 +6,14 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 10:03:23 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/19 13:04:14 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/20 14:27:46 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
-{
-    _index = 0;
-    _contactCount = 0;
-}
+// Initialization list
+PhoneBook::PhoneBook() : _index(0), _contactCount(0) {}
 
 void    PhoneBook::addContact()
 {
