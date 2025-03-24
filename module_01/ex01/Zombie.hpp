@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 13:47:01 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/24 08:44:06 by abinti-a         ###   ########.fr       */
+/*   Created: 2025/03/24 08:48:41 by abinti-a          #+#    #+#             */
+/*   Updated: 2025/03/24 09:11:50 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-// Allocates memory on the heap using new
-// Returns a pointer
-// Memory must be deleted manually
-Zombie *newZombie(std::string name)
-{
-    return new Zombie(name);
-}
+# include <iostream>
+# include <string>
+
+class   Zombie {
+    private:
+        std::string _name;
+    
+    public:
+        Zombie();
+        ~Zombie();
+        void    announce(void);
+        void    setName(std::string name);
+} ;
+
+Zombie* zombieHorde( int N, std::string name );
+
+#endif
