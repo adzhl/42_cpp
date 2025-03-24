@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 09:31:28 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/24 10:20:32 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/24 11:07:47 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 int main() {
     std::string brain = "HI THIS IS BRAIN";
 
-    std::string *stringPTR = &brain;
+    std::string* stringPTR = &brain;
 
-    std::string &stringREF = brain;
+    std::string& stringREF = brain;
 
     std::cout << "Memory address of brain: " << &brain << '\n';
     std::cout << "Memory address of stringPTR: " << stringPTR << '\n';
