@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 10:25:26 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/24 11:05:29 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/25 08:17:02 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 class HumanA {
     private:
         std::string _name;
-        Weapon      _type;
+        Weapon&     _weapon;
 
     public:
-        HumanA(std::string _name, Weapon& type);
+        HumanA(std::string name, Weapon& weapon);
         void    attack() const;
 } ;
 
