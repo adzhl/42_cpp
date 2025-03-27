@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 09:19:16 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/27 13:19:14 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/03/27 13:23:54 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ bool    checkS1(std::string s1) {
 }
 
 // Open and check input file
+// peek() : reads the next character from the input stream without extracting it
+//        : returns the next character in the input string
 std::ifstream   handleInput(char *argv) {
     std::ifstream input(argv);
     if (!input) {
