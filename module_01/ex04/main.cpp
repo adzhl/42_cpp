@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 09:19:16 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/03 10:05:23 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:16:05 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 //
 // ofstream : Create output file
 // c++98 ofstream only accept const char *
+// automatically handles opening and closing files
 int main(int argc, char **argv) {
     if (argc != 4) {
         std::cerr << "Usage: ./sed <filename> <string to replace> <new string>\n"; return (1); }
@@ -66,6 +67,18 @@ void    replaceLine(std::string &line, const std::string &s1, const std::string 
         pos += s2.length();
     }
 }
+
+
+// ifstream : Reads from files
+// open : Opens a file manually
+// in C when using open() you must manually close()
+// ifstream/ofstream auto closes on object destruction
+// std::ifstream file("example.txt") is the same as 
+//      std::ifstream file;  
+//      file.open("example.txt");
+//      file.close();
+// Must close before reopening and freeing resources early (Long-running function that keeps file open for a while)
+
 
 // // Open and check input file
 // // peek() : reads the next character from the input stream without extracting it
