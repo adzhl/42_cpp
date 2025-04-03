@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 10:25:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/03/25 08:18:15 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/03 12:03:59 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class HumanB {
     public:
         HumanB(std::string name);
         void    attack() const;
-        void    setWeapon(Weapon& weapon);
+        void    setWeapon(Weapon* weapon);
 } ;
 
 #endif
