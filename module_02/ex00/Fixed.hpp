@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 09:43:26 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/07 10:21:06 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/07 11:08:20 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Fixed {
         ~Fixed();
         Fixed(const Fixed& other);
         Fixed& operator=(const Fixed& other);
+
         int     getRawBits(void) const;
         void    setRawBits(int const raw);
 }; 
