@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:59:26 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/07 11:15:53 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/07 14:38:12 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Fixed {
 
 // Insertion operator overload
 // How an object of a class should be displayed to the output stream
-// friend : can directly access private memebers of the class
+// friend : can directly access private members of the class
 std::ostream&   operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif
