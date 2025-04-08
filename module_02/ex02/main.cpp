@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 14:10:59 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/07 14:18:39 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/08 21:10:56 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,6 @@ int main( void ) {
     std::cout << Fixed::max( a, b ) << std::endl;
     return 0;
 }
+
+// Output will be float due to insertion operator converting value to float before printing
+// a.operator>(b); 

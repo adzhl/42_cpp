@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 14:11:07 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/07 14:38:00 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:06:16 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ class Fixed {
         bool    operator!=(const Fixed& other) const;
 
         // Arithmetic operators
-        Fixed&  operator+(const Fixed& other) const;
-        Fixed&  operator-(const Fixed& other) const;
-        Fixed&  operator*(const Fixed& other) const;
-        Fixed&  operator/(const Fixed& other) const;
+        Fixed  operator+(const Fixed& other) const;
+        Fixed  operator-(const Fixed& other) const;
+        Fixed  operator*(const Fixed& other) const;
+        Fixed  operator/(const Fixed& other) const;
 
         // Increment/Decrement
         Fixed&  operator++();
@@ -55,6 +55,7 @@ class Fixed {
         Fixed&  operator--();
         Fixed   operator--(int);
 
+        // Overloaded member functions
         static Fixed&       min(Fixed& a, Fixed& b);
         static const Fixed& min(const Fixed& a, const Fixed& b);
         static Fixed&       max(Fixed& a, Fixed& b);
