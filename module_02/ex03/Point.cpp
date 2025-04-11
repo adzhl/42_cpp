@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 07:56:37 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/09 11:47:35 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/11 09:15:43 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ const Fixed&    Point::getX() const { return (_x); }
 const Fixed&    Point::getY() const { return (_y); }
 
 std::ostream&   operator<<(std::ostream& os, const Point& point) {
-    std::cout << "x: " << point.getX() << ", y: " << point.getY();
+    os << "x: " << point.getX() << ", y: " << point.getY();
     return (os);  
 }
