@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 14:11:03 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/08 21:27:01 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/11 09:57:41 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,22 +84,27 @@ Fixed  Fixed::operator*(const Fixed& other) const { return (this->toFloat() * ot
 Fixed  Fixed::operator/(const Fixed& other) const { return (this->toFloat() / other.toFloat()); }
 
 // Increment/Decrement
+// Pre-increment
 Fixed&  Fixed::operator++() {
     this->_rawBits++;
     return (*this);
 }
 
+// Post-increment
+// the parameter (int) signals c++ compiler that this is a postfix
 Fixed  Fixed::operator++(int) {
     Fixed temp = *this;
     this->_rawBits++;
     return (temp);
 }
 
+// Pre-decrement
 Fixed&  Fixed::operator--() {
     this->_rawBits--;
     return (*this);
 }
 
+// Post-decrement
 Fixed  Fixed::operator--(int) {
     Fixed temp = *this;
     this->_rawBits--;
