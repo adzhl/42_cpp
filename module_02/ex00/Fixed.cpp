@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 09:43:24 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/07 12:59:46 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/11 09:31:45 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ Fixed::Fixed(const Fixed& other) {
 
 // Fixed::Fixed(const Fixed& other) : _rawBits(other._rawBits) {
 //     std::cout << "Copy constructor called\n";
+// }
+
+// Fixed::Fixed(const Fixed& other) {
+//     std::cout << "Copy constructor called\n";
+//     this->_rawBits = other.getRawBits();
 // }
 
 // Copy assignment operator overload
