@@ -6,12 +6,18 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:29:38 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/11 10:39:29 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/14 09:06:15 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
+
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
 
 #include <iostream>
 #include <string>
@@ -34,6 +40,7 @@ class ClapTrap {
         void    takeDamage(unsigned int amount);
         void    beRepaired(unsigned int amount);
 
+        void    printStats();
 } ;
 
 #endif
