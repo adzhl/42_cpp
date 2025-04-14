@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:29:17 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 09:14:46 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/14 11:40:36 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main() {
     std::cout << YELLOW << "=== Creating ClapTrap ===" << std::endl << RESET;
-    ClapTrap bot("CL4P-TP");
+    ClapTrap bot("Dimitri");
 
     std::cout << YELLOW << "\n=== Initial Stats ===" << std::endl << RESET;
     bot.printStats();

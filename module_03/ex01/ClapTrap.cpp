@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:29:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 11:05:15 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/14 11:39:52 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap() :
 // Constructor that takes in a name string
 ClapTrap::ClapTrap(std::string name) :
     _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-    std::cout << "ClapTrap" << _name << " is created\n";
+    std::cout << "ClapTrap " << _name << " is created\n";
 }
 
 // Copy constructor
@@ -45,7 +45,8 @@ ClapTrap::~ClapTrap() { std::cout << "ClapTrap " << _name << " is destroyed\n"; 
 void    ClapTrap::printStats() {
     std::cout << GREEN << "\n[ CURRENT STATS FOR " << this->_name << " ]\n";
     std::cout << GREEN << "---> HP: " << this->_hitPoints << "\n";
-    std::cout << GREEN << "---> EP: " << this->_energyPoints << "\n\n" << RESET;
+    std::cout << GREEN << "---> EP: " << this->_energyPoints << "\n";
+    std::cout << GREEN << "---> AD: " << this->_attackDamage << "\n\n" << RESET;
 }
 
 // Attack   : costs 1 energy point

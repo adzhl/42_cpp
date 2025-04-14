@@ -5,25 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 10:50:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 11:40:44 by abinti-a         ###   ########.fr       */
+/*   Created: 2025/04/14 11:24:06 by abinti-a          #+#    #+#             */
+/*   Updated: 2025/04/14 12:13:15 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
-    std::cout << YELLOW << "=== Creating ScavTrap ===" << std::endl << RESET;
-    ScavTrap scav("Edelgard");
+    std::cout << YELLOW << "\n=== Creating FragTrap ===" << std::endl << RESET;
+    FragTrap frag("Claude");
 
     std::cout << YELLOW << "\n=== Initial Stats ===" << std::endl << RESET;
-    scav.printStats();
-    
-    std::cout << YELLOW << "\n=== ScavTrap Actions ===" << std::endl << RESET;
-    scav.attack("target_dummy");
-    scav.takeDamage(30);
-    scav.beRepaired(20);
-    scav.guardGate();
+    frag.printStats();
+
+    std::cout << YELLOW << "\n=== FragTrap Actions ===" << std::endl << RESET;
+    frag.attack("target_dummy");
+    frag.takeDamage(20);
+    frag.beRepaired(10);
+    frag.highFivesGuys();
+
+    // std::cout << YELLOW << "\n=== Copy and Assignment ===" << std::endl << RESET;
+    // FragTrap clone(frag);
+    // FragTrap assigned;
+    // assigned = frag;
+    // clone.printStats();
+    // assigned.printStats();
 
     std::cout << YELLOW << "\n=== End of Program ===" << std::endl << RESET;
     return (0);
