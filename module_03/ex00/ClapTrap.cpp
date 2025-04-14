@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:29:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 09:17:19 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/14 11:05:33 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ ClapTrap::~ClapTrap() { std::cout << "ClapTrap " << _name << " is destroyed\n"; 
 
 // Stats printer for HP and EP
 void    ClapTrap::printStats() {
-    std::cout << GREEN << "\n[ CURRENT STATS FOR CLAPTRAP " << this->_name << " ]\n";
+    std::cout << GREEN << "\n[ CURRENT STATS FOR " << this->_name << " ]\n";
     std::cout << GREEN << "---> HP: " << this->_hitPoints << "\n";
     std::cout << GREEN << "---> EP: " << this->_energyPoints << "\n\n" << RESET;
 }
