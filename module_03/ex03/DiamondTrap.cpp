@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:34:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 15:23:42 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:11:50 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _nam
     this->_hitPoints = FragTrap::_hitPoints;
     this->_energyPoints = ScavTrap::_energyPoints;
     this->_attackDamage = FragTrap::_attackDamage;
-    std::cout << "DiamondTrap " << this->_name <<  "is ready to die for the cause\n";
+    std::cout << "DiamondTrap " << this->_name <<  " is ready to die for the cause\n";
 }
 
 // Copy constructor
@@ -50,6 +50,11 @@ DiamondTrap&   DiamondTrap::operator=(const DiamondTrap& other) {
 // Destructor
 DiamondTrap::~DiamondTrap() { std::cout << "DiamondTrap " << this->_name << " has been defeated. Rest in Peace...\n"; }
 
-void    DiamondTrap::attack(const std::string& target) {
-    ScavTrap::attack(target);
+// void    DiamondTrap::attack(const std::string& target) {
+//     ScavTrap::attack(target);
+// }
+
+void    DiamondTrap::whoAmI() {
+    std::cout << BLUE << "DiamondTrap name: " << this->_name << '\n';
+    std::cout << "ClapTrap name: " << ClapTrap::_name << '\n' << RESET;
 }

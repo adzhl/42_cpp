@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:16:27 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 13:41:09 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:10:08 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class FragTrap : virtual public ClapTrap {
         FragTrap& operator=(const   FragTrap& other);
         ~FragTrap();
 
-        void    attack(const std::string& target);
-        void    highFivesGuys(void);
+        virtual void    attack(const std::string& target);
+        void            highFivesGuys(void);
 } ;
 
 #endif

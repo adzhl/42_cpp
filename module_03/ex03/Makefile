@@ -2,9 +2,9 @@ NAME = DiamondTrap
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
+CFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
