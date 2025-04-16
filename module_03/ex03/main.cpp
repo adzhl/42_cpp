@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:42:52 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 09:25:08 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 10:29:50 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int main() {
     std::cout << YELLOW << "\n=== Testing takeDamage and beRepaired (ClapTrap's functions) ===\n" << RESET;
     dt1.takeDamage(30);
     dt1.beRepaired(20);
+
+    std::cout << YELLOW << "\n=== Testing guardGate and highFiveGuys (ScavTrap's & FragTrap's function) ===\n" << RESET;
+    dt1.guardGate();
+    dt1.highFivesGuys();
 
     std::cout << YELLOW << "\n=== Testing whoAmI (DiamondTrap special) ===\n" << RESET;
     dt1.whoAmI();
