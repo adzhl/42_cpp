@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:29:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 11:49:24 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 08:32:35 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 // Default constructor
 ClapTrap::ClapTrap() : 
-    _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+    _name("Default"), _hitPoints(DEFAULT_HP), _energyPoints(DEFAULT_EP), _attackDamage(DEFAULT_AD) {
     std::cout << "ClapTrap Default is created\n";
 }
 
 // Constructor that takes in a name string
 ClapTrap::ClapTrap(std::string name) :
-    _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+    _name(name), _hitPoints(DEFAULT_HP), _energyPoints(DEFAULT_EP), _attackDamage(DEFAULT_AD) {
     std::cout << "ClapTrap " << _name << " is created\n";
 }
 

@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:29:38 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 10:27:47 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 08:31:51 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ class ClapTrap {
         void    beRepaired(unsigned int amount);
 
         void    printStats();
+
+    private:
+        static const int    DEFAULT_HP = 10;
+        static const int    DEFAULT_EP = 10;
+        static const int    DEFAULT_AD = 0;
 } ;
 
 #endif

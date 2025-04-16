@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:18:49 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 12:05:42 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 08:35:12 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 // Default constructor
 FragTrap::FragTrap() : ClapTrap() {
-    _hitPoints = 100;
-    _energyPoints = 100;
-    _attackDamage = 30;
+    _hitPoints = DEFAULT_HP;
+    _energyPoints = DEFAULT_EP;
+    _attackDamage = DEFAULT_AD;
     std::cout << "FragTrap Default is created\n";
 }
 
 // Constructor that takes in a name string
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-    _hitPoints = 100;
-    _energyPoints = 100;
-    _attackDamage = 30;
+    _hitPoints = DEFAULT_HP;
+    _energyPoints = DEFAULT_EP;
+    _attackDamage = DEFAULT_AD;
     std::cout << "FragTrap " << _name << " is ready for battle\n";
 }
 

@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:42:52 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 15:49:28 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 08:28:10 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main() {
     std::cout << YELLOW << "\n=== Constructing DiamondTrap ===\n" << RESET;
-    DiamondTrap dt1("Shiny");
+    DiamondTrap dt1("Byleth");
 
     std::cout << YELLOW << "\n=== Initial Stats ===" << std::endl << RESET;
     dt1.printStats();
@@ -39,7 +39,10 @@ int main() {
     dt3.whoAmI();
 
     std::cout << YELLOW << "\n=== Deconstruction check ===\n" << RESET;
-    // All destructors will be called at end of main
 
     return 0;
 }
+
+// HP (FT) = 100
+// EP (ST) = 50
+// AD (FT) = 30
