@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 10:50:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 09:06:56 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 13:08:01 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main() {
     scav.guardGate();
 
     std::cout << YELLOW << "\n=== Copy and Assignment ===" << std::endl << RESET;
-    // FragTrap clone(frag);
+    // ScavTrap clone(scav);
     // clone.printStats();
     ScavTrap assigned;
     assigned = scav;
