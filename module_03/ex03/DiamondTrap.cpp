@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:34:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 08:44:20 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:00:21 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,13 @@ DiamondTrap&   DiamondTrap::operator=(const DiamondTrap& other) {
 // Destructor
 DiamondTrap::~DiamondTrap() { std::cout << "DiamondTrap " << this->_name << " has been defeated. Rest in Peace...\n"; }
 
+// Use attack() from ScavTrap
 void    DiamondTrap::attack(const std::string& target) {
     ScavTrap::attack(target);
 }
 
+// Display DiamondTrap name (current class)
+// Display ClapTrap name
 void    DiamondTrap::whoAmI() {
     std::cout << BLUE << "DiamondTrap name: " << this->_name << '\n';
     std::cout << "ClapTrap name: " << ClapTrap::_name << '\n' << RESET;

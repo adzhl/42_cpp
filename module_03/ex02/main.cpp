@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:24:06 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 12:13:15 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:05:20 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int main() {
     frag.beRepaired(10);
     frag.highFivesGuys();
 
-    // std::cout << YELLOW << "\n=== Copy and Assignment ===" << std::endl << RESET;
+    std::cout << YELLOW << "\n=== Copy and Assignment ===" << std::endl << RESET;
     // FragTrap clone(frag);
-    // FragTrap assigned;
-    // assigned = frag;
     // clone.printStats();
-    // assigned.printStats();
+    FragTrap assigned;
+    assigned = frag;
+    assigned.printStats();
 
     std::cout << YELLOW << "\n=== End of Program ===" << std::endl << RESET;
     return (0);

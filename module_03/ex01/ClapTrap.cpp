@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 10:29:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/14 11:39:52 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:08:59 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ ClapTrap::ClapTrap(std::string name) :
 }
 
 // Copy constructor
-ClapTrap::ClapTrap(const ClapTrap& other) { *this = other; }
+ClapTrap::ClapTrap(const ClapTrap& other) { std::cout << "ClapTrap copy constructor called\n"; *this = other; }
 
 // Copy assignment operator
 ClapTrap&   ClapTrap::operator=(const ClapTrap& other) {
+    std::cout << "ClapTrap copy assignment operator called\n";
     if (this != &other) {
         this->_name = other._name;
         this->_hitPoints = other._hitPoints;
