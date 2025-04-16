@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:34:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 08:14:06 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 08:44:20 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 // Default constructor
 DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), ScavTrap(), FragTrap(), _name("Default") {
-    this->_hitPoints = FragTrap::_hitPoints;
-    this->_energyPoints = ScavTrap::_energyPoints;
-    this->_attackDamage = FragTrap::_attackDamage;
+    this->_hitPoints = FragTrap::DEFAULT_HP;
+    this->_energyPoints = ScavTrap::DEFAULT_EP;
+    this->_attackDamage = FragTrap::DEFAULT_AD;
     std::cout << "DiamondTrap Default is created\n";
 }
 
 // Custom constructor
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name) {
-    this->_hitPoints = FragTrap::_hitPoints;
-    this->_energyPoints = ScavTrap::_energyPoints;
-    this->_attackDamage = FragTrap::_attackDamage;
+    this->_hitPoints = FragTrap::DEFAULT_HP;
+    this->_energyPoints = ScavTrap::DEFAULT_EP;
+    this->_attackDamage = FragTrap::DEFAULT_AD;
     std::cout << "DiamondTrap " << this->_name <<  " is ready to die for the cause\n";
 }
 
@@ -40,10 +40,6 @@ DiamondTrap&   DiamondTrap::operator=(const DiamondTrap& other) {
     if (this != &other) {
         ClapTrap::operator=(other);
         this->_name = other._name;
-        // this->_name = other._name;
-        // this->_hitPoints = other._hitPoints;
-        // this->_energyPoints = other._energyPoints;
-        // this->_attackDamage = other._attackDamage;
     }
     return (*this);
 }

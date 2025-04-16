@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:16:27 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 08:34:03 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 08:43:58 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ class FragTrap : virtual public ClapTrap {
         virtual void    attack(const std::string& target);
         void            highFivesGuys(void);
 
-    private:
+    protected:
         static const int    DEFAULT_HP = 100;
-        static const int    DEFAULT_EP = 50;
-        static const int    DEFAULT_AD = 20;
+        static const int    DEFAULT_EP = 100;
+        static const int    DEFAULT_AD = 30;
 } ;
 
 #endif

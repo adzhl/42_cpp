@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 15:42:52 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 08:28:10 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 08:39:36 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main() {
 
     std::cout << YELLOW << "\n=== Deconstruction check ===\n" << RESET;
 
-    return 0;
+    return (0);
 }
 
 // HP (FT) = 100

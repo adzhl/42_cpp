@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 09:38:56 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 08:34:59 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 08:44:05 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ class ScavTrap : virtual public ClapTrap {
         void    attack(const std::string& target);
         void    guardGate();
 
-    private:
+    protected:
         static const int    DEFAULT_HP = 100;
-        static const int    DEFAULT_EP = 100;
-        static const int    DEFAULT_AD = 30;
+        static const int    DEFAULT_EP = 50;
+        static const int    DEFAULT_AD = 20;
 } ;
 
 #endif
