@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:16:27 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 08:52:22 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:52:20 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ class FragTrap : virtual public ClapTrap {
         static const int    DEFAULT_EP = 100;
         static const int    DEFAULT_AD = 30;
 } ;
+
+// static variables set the member to belong to the class instead of the instance
 
 #endif

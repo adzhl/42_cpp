@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 09:38:56 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 08:44:05 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:49:41 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ class ScavTrap : virtual public ClapTrap {
         static const int    DEFAULT_EP = 50;
         static const int    DEFAULT_AD = 20;
 } ;
+
+// static variables set the member to belong to the class instead of the instance
 
 #endif

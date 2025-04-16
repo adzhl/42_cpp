@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 13:34:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 09:00:21 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:28:18 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), ScavTrap(), FragTrap
 }
 
 // Custom constructor
+// C++ doesn't automatically know how to construct each base class unless instructed
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name) {
     this->_hitPoints = FragTrap::DEFAULT_HP;
     this->_energyPoints = ScavTrap::DEFAULT_EP;
@@ -35,6 +36,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other), ScavTrap(o
 }
 
 // Copy assignment operator
+// Since DiamondTrap has its own _name member we need to copy it over
 DiamondTrap&   DiamondTrap::operator=(const DiamondTrap& other) {
     std::cout << "DiamondTrap copy assignment operator called\n";
     if (this != &other) {
