@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:27:34 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/16 15:29:44 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/18 08:18:08 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class Cat : public Animal {
         Cat(const Cat& other);
         Cat& operator=(const Cat& other);
         ~Cat();
+
+        void    makeSound() const;
 } ;
 
 #endif
