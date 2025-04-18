@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:23:09 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/18 09:44:31 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/18 14:49:09 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,19 @@ int main()
     std::cout << YELLOW << "\n=== Destroying Wrong Animals ===\n" << RESET;
     delete wrong_meta;
     delete wrong_i;
+
+    std::cout << BLUE << "\n=== COPY CONSTRUCTOR TEST ===\n" << RESET;
+    Animal a1;
+    Animal a2 = a1;
+    std::cout << '\n';
+
+    Cat c1;
+    Cat c2 = c1;
+    std::cout << '\n';
+
+    Dog d1;
+    Dog d2 = d1;
+    std::cout << '\n';
 
     return (0);
 }
