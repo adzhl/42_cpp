@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 07:55:45 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/18 10:41:51 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/18 13:13:25 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,11 @@ Dog& Dog::operator=(const Dog& other) {
 // Destructor
 Dog::~Dog() { delete _brain; std::cout << "Dog ran away...\n"; }
 
+// Make Sound function
 void    Dog::makeSound() const { std::cout << "Woof\n"; }
+
+// Setter
+void    Dog::setIdea(int index, const std::string& idea) { _brain->setIdea(index, idea); }
+
+// Getter
+std::string  Dog::getIdea(int index) const { return (_brain->getIdea(index)); }

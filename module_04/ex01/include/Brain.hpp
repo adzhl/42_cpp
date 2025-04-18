@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 09:47:46 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/18 10:07:05 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/18 12:33:10 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ class Brain {
         Brain&  operator=(const Brain& other);
         ~Brain();
 
-        
+        void        setIdea(int index, const std::string& idea);
+        std::string getIdea(int index) const;
 } ;
 
 #endif

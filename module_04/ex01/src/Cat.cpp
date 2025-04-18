@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 07:38:40 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/18 10:39:59 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/18 13:13:29 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,11 @@ Cat& Cat::operator=(const Cat& other) {
 // Destructor
 Cat::~Cat() { delete _brain; std::cout << "Cat ran away...\n"; }
 
+// Make sound function
 void    Cat::makeSound() const { std::cout << "Meow\n"; }
+
+// Setter
+void    Cat::setIdea(int index, const std::string& idea) { _brain->setIdea(index, idea); }
+
+// Getter
+std::string  Cat::getIdea(int index) const { return (_brain->getIdea(index)); }

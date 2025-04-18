@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:23:09 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/18 10:35:53 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/18 13:17:39 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,33 @@ int main() {
         delete zoo[i];
 
     std::cout << YELLOW << "\nDeep copy test:\n"<< RESET;
-    Dog original;
-    original.makeSound();
 
-    Dog copy = original;
-    copy.makeSound();
+    Dog basic;
+    {
+        Dog tmp = basic;
+        tmp.setIdea(0, "I got that dawg in me");
 
-    Dog assigned;
-    assigned = original;
+        std::cout << "\nBasic idea: " << basic.getIdea(0) << '\n';
+        std::cout << "Tmp idea: " << tmp.getIdea(0) << '\n';
+    }
+
+    std::cout << "Basic idea after tmp destroyed: " << basic.getIdea(0) << "\n\n";
 
     return (0);
 }
+
+// Shallow Copy
+// object's non-pointer data is copied
+// pointer member just copies the pointer (not the data it points to)
+// both objects now share the same memory for the pointed data
+// share the same pointer/memory so deleting one will cause dangling pointer (invalid memory for the other pointer)
+// _brain = other.brain;
+
+// Deep Copy
+// the whole object is duplicated
+// for pointer, a new copy of the data is created and assigned a new pointer
+// No shared ownership (own memory)
+// _brain = new Brain(*other._brain);
 
 
 // Base class can only see the base portion

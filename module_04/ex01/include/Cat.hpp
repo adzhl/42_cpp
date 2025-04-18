@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:27:34 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/18 10:09:54 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/18 12:47:25 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ class Cat : public Animal {
         Cat& operator=(const Cat& other);
         ~Cat();
 
-        void    makeSound() const;
+        void        makeSound() const;
+
+        void        setIdea(int index, const std::string& idea);
+        std::string getIdea(int index) const;
 } ;
 
 #endif

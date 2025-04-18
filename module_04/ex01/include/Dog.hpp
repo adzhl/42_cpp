@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:25:37 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/18 10:10:16 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/18 12:42:57 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ class Dog : public Animal {
         Dog& operator=(const Dog& other);
         ~Dog();
 
-        void    makeSound() const;
+        void        makeSound() const;
+
+        void        setIdea(int index, const std::string& idea);
+        std::string getIdea(int index) const;
 } ;
 
 #endif
