@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:23:09 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/18 09:17:58 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/18 09:44:31 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ int main()
     j->makeSound();
     meta->makeSound();
 
-    std::cout << BLUE << "\n=== WRONG ANIMAL TEST ===\n" << RESET;
-
     std::cout << YELLOW << "\n=== Destroying Animals ===\n" << RESET;
     delete meta;
     delete j;
     delete i;
+
+    std::cout << BLUE << "\n=== WRONG ANIMAL TEST ===\n" << RESET;
 
     std::cout << YELLOW << "\n=== Creating Wrong Animals ===\n" << RESET;
     const WrongAnimal* wrong_meta = new WrongAnimal();
