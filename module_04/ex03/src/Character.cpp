@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 09:09:13 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/21 12:04:52 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/21 17:57:03 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void    Character::equip(AMateria* m) {
             return;
         }
     }
-    
     std::cout << RED << m->getType() << " cannot be equipped. Inventory is full!\n" << RESET;
 }
 
@@ -93,6 +92,9 @@ void    Character::unequip(int idx) {
 
 // Use
 void    Character::use(int idx, ICharacter& target) {
-    if (idx >= 0 && idx < 4 && this->_inventory[idx])
+    if (idx >= 0 && idx < 4 && this->_inventory[idx]) {
         this->_inventory[idx]->use(target);
+        return;
+    }
+    std::cout << RED << "Item not found. Nothing to do!\n" << RESET;
 }
