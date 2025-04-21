@@ -1,4 +1,4 @@
-NAME = 
+NAME = Interface
 
 CC = c++
 
@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
 MAIN = main.cpp
 
-SRC = $(addprefix src/, )
+SRC = $(addprefix src/, AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp)
 
 SRC_DIR = src
 
