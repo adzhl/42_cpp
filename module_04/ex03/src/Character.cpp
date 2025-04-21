@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 09:09:13 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/21 17:57:03 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:19:02 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ std::string const&  Character::getName() const { return (this->_name); }
 
 // Equip
 void    Character::equip(AMateria* m) {
-    if (!m) { return; }
+    if (!m) { std::cout << RED << "Nothing to equip!\n" << RESET; return; }
 
     for (int i = 0; i < 4; i++) {
         if (this->_inventory[i] == NULL) {
