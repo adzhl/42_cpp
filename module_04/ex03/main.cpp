@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:47:26 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/21 18:09:10 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:15:58 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int main() {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+    // Try creating unknown materia, returns NULL, no memory allocated
     AMateria* unknown = src->createMateria("unknown");
 
     std::cout << BLUE << "\n--- Equipping Materia ---\n" << RESET;
