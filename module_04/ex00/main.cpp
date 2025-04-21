@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:23:09 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/18 14:49:09 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:01:36 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int main()
 // Base class can only see the base portion
 // if base has virtual functions, it can still be overidden by derived class version using vtable
 // polymorphism treats derived classes as if they're the base class
-// a derived class hass all the members of the base class so it can be treated as the base class (store in a base class pointer)
+// a derived class has all the members of the base class so it can be treated as the base class (store in a base class pointer)
 // the base class can only see base class related members in the derived class
 
 // Base* p = new Derived
