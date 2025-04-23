@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:47:26 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/23 10:34:56 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/23 10:39:37 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ void    basicTest() {
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
     me->use(1, *bob);
+
+    std::cout << BLUE << "\n--- Copy Constructor test---\n" << RESET;
+    Character c1;
+    Character c2 = c1;
+
+    Cure cu1;
+    Cure cu2 = cu1;
+
+    Ice i1;
+    Ice i2 = i1;
+
+    MateriaSource m1;
+    MateriaSource m2 = m1;
 
     std::cout << BLUE << "\n--- Cleanup ---\n" << RESET;
     delete bob;
