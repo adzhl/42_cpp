@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:35:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/21 10:38:26 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/23 09:55:45 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 # include <iostream>
 # include <string>
 # include "ICharacter.hpp"
-
-class ICharacter; // Forward declaration
 
 class AMateria {
     protected:

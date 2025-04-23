@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 08:45:31 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/21 10:40:10 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/23 10:10:31 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Ice&    Ice::operator=(const Ice& other) {
 Ice::~Ice() { std::cout << "Ice destructor called\n"; }
 
 // Clone another copy itself
-AMateria*   Ice::clone() const { return (new Ice()); }
+AMateria*   Ice::clone() const { return (new Ice(*this)); }
 
 // Message
 void    Ice::use(ICharacter& target) {

@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 08:59:03 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/21 10:40:24 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/23 10:10:24 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Cure&    Cure::operator=(const Cure& other) {
 Cure::~Cure() { std::cout << "Cure destructor called\n"; }
 
 // Clone another copy itself
-AMateria*   Cure::clone() const { return (new Cure()); }
+AMateria*   Cure::clone() const { return (new Cure(*this)); }
 
 // Message
 void    Cure::use(ICharacter& target) {

@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:47:26 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/21 18:15:58 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/23 10:34:56 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ int main() {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-    // Try creating unknown materia, returns NULL, no memory allocated
-    AMateria* unknown = src->createMateria("unknown");
 
     std::cout << BLUE << "\n--- Equipping Materia ---\n" << RESET;
     ICharacter* me = new Character("me");
 
     // Store allocated materia so we can delete it later
+    // Try creating unknown materia, returns NULL, no memory allocated
+    AMateria* unknown = src->createMateria("unknown");
     AMateria* ice1 = src->createMateria("ice");
     AMateria* cure1 = src->createMateria("cure");
     AMateria* ice2 = src->createMateria("ice");
@@ -95,3 +95,7 @@ int main() {
 
     return (0);
 }
+
+// We don't need to delete ice1, cure1, or cure2 manually 
+// because they are now owned and deleted by Character::me
+// Once equipped, their memory is managed inside the Character object
