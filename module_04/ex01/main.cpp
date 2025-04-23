@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:23:09 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/18 13:17:39 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/23 09:48:24 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ int main() {
     std::cout << YELLOW << "\nDestroying Animals:\n" << RESET;
     for (int i = 0; i < size; ++i)
         delete zoo[i];
+
+    std::cout << YELLOW << "\nCopy constructor test:\n"<< RESET;
+    Animal a1;
+    Animal a2 = a1;
+
+    Cat c1;
+    Cat c2 = c1;
+
+    Dog d1;
+    Dog d2 = d1;
 
     std::cout << YELLOW << "\nDeep copy test:\n"<< RESET;
 
