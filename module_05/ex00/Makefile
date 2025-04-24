@@ -1,12 +1,12 @@
-NAME = 
+NAME = Bureaucrat
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
-MAIN = main.cpp
+MAIN = main.cpp 
 
-SRC = $(addprefix src/, )
+SRC = $(addprefix src/, Bureaucrat.cpp)
 
 SRC_DIR = src
 
