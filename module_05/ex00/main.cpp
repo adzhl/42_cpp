@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:54:22 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/24 11:42:01 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/24 11:45:50 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int main() {
         std::cout << YELLOW << "\n=== INCREMENT TEST ===\n" << RESET;
         Bureaucrat zayne("Zayne", 2);
         std::cout << GREEN << zayne << '\n' << RESET;
-        zayne.incrementGrade(); // 2 -> 1
-        std::cout << GREEN << zayne << '\n' << RESET;
-        zayne.incrementGrade(); // 1 -> 0
-        std::cout << GREEN << zayne << '\n' << RESET;
+        for (int i = 0; i < 5; i++) {
+            zayne.incrementGrade();
+            std::cout << GREEN << zayne << '\n' << RESET;
+        }
     } catch (std::exception &e) {
         std::cout << RED << e.what() << '\n' << RESET;
     }
@@ -69,13 +69,13 @@ int main() {
         std::cout << YELLOW << "\n=== DECREMENT TEST ===\n" << RESET;
         Bureaucrat mephisto("mephisto", 149);
         std::cout << GREEN << mephisto << '\n' << RESET;
-        mephisto.decrementGrade(); // 149 -> 150
-        std::cout << GREEN << mephisto << '\n' << RESET;
-        mephisto.decrementGrade(); // 150 -> 151
-        std::cout << GREEN << mephisto << '\n' << RESET;
+        for (int i = 0; i < 5; i++) {
+            mephisto.decrementGrade();
+            std::cout << GREEN << mephisto << '\n' << RESET;
+        }
     } catch (std::exception &e) {
         std::cout << RED << e.what() << std::endl << RESET;
     }
 
-    return 0;
+    return (0);
 }
