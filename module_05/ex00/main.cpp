@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:54:22 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/24 11:45:50 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/04/25 20:53:38 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main() {
     try {
         std::cout << YELLOW << "\n== OCF TEST===\n" << RESET;
 
-        Bureaucrat mc("mc", 1);
+        Bureaucrat mc;
         Bureaucrat tara(mc);
         mc = tara;
     }
