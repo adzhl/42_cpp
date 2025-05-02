@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:54:22 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/02 14:31:07 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/02 14:48:53 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,11 @@ int main() {
         std::cout << YELLOW << "\n--- Execute with high grade ---\n" << RESET;
 
         Bureaucrat caleb("Caleb", 137);
+        Bureaucrat sylus("Sylus", 145);
         ShrubberyCreationForm wanderer("Wanderer");
 
         caleb.signForm(wanderer);
+        sylus.signForm(wanderer);
 
         wanderer.execute(caleb);
         std::cout << BLUE << "\n! Look for newly created *_shrubbery file in current directory !\n\n" << RESET;
