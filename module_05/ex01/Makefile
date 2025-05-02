@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = Form
 
 CC = c++
 
@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
 MAIN = main.cpp 
 
-SRC = $(addprefix src/, Bureaucrat.cpp)
+SRC = $(addprefix src/, Bureaucrat.cpp Form.cpp)
 
 SRC_DIR = src
 

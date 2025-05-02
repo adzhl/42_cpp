@@ -6,11 +6,12 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:54:47 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/24 11:35:29 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/02 09:24:30 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // Default constructor
 Bureaucrat::Bureaucrat() : _name("Some fella"), _grade(1) { std::cout << "Bureaucrat default constructor called\n"; }
@@ -72,3 +73,15 @@ std::ostream&   operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
 const char* Bureaucrat::GradeTooHighException::what() const throw() { return ("Bureaucrat grade too high!"); }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() { return ("Bureaucrat grade too low!"); }
+
+
+// Member Function
+void    Bureaucrat::signForm(Form& form) {
+    try {
+        form.beSigned(*this);
+        std::cout << GREEN << this->_name << " signed " << form.getName() << '\n' << RESET;
+    }
+    catch (std::exception &e) {
+        std::cout << RED << this->_name << " couldn't sign " << form.getName() << " because " << e.what() << '\n' << RESET;
+    }
+}

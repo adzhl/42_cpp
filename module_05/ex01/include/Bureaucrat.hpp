@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:55:08 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/24 10:53:24 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/02 08:32:51 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 # include <iostream>
 # include <string>
+
+class Form;
 
 class Bureaucrat {
     private:
@@ -39,6 +41,8 @@ class Bureaucrat {
 
         void                incrementGrade();
         void                decrementGrade();
+
+        void                signForm(Form& form);
 
         // nested class inside Bureaucrat
         // belongs to Bureaucrat - Bureaucrat::GradeTooHighException
