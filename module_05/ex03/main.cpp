@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:54:22 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/02 17:15:41 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:09:55 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main() {
         AForm* f1 = intern.makeForm("ShrubberyCreationForm", "Shrubs");
         AForm* f2 = intern.makeForm("RobotomyRequestForm", "Robs");
         AForm* f3 = intern.makeForm("PresidentialPardonForm", "Pres");
+        intern.makeForm("UnknownForm", "Unknown");
 
         std::cout << YELLOW << "\n--- Shrubbery Creation form ---\n" << RESET;
         boss.signForm(*f1);
@@ -52,3 +53,7 @@ int main() {
 
     return (0);
 }
+
+// Factory method design pattern
+// create objects in a superclass (base class)
+// but allow subclasses to alter the type of objects that will be created

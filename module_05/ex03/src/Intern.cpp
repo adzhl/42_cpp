@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 14:59:38 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/02 16:50:13 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:16:39 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ AForm*  createPresidential(const std::string& target) {
 
 
 // Member function
+// Using a lookup table - maps form names to function pointers
 AForm*  Intern::makeForm(std::string name, std::string target) {
     std::string forms[] = {
         "ShrubberyCreationForm",
