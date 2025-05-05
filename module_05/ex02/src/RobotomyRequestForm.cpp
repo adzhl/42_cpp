@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 13:40:25 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/02 14:26:37 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/05 08:37:24 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ RobotomyRequestForm&  RobotomyRequestForm::operator=(const RobotomyRequestForm& 
 RobotomyRequestForm::~RobotomyRequestForm() { std::cout << "RobotomyRequestForm default destructor called\n";  }
 
 // Form execution
+// rand()   : returns a pseudo-random integer between 0 - RAND_MAX
+// srand()  : sets the seed for rand() - controls the starting point of the random sequence
 void RobotomyRequestForm::executeAction() const {
     std::cout << BLUE << "\n* * < SOME DRILLING NOISES > * *\n" << RESET;
     srand(std::time(NULL));
