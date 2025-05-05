@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:54:22 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/05 09:09:55 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:42:32 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int main() {
         AForm* f1 = intern.makeForm("ShrubberyCreationForm", "Shrubs");
         AForm* f2 = intern.makeForm("RobotomyRequestForm", "Robs");
         AForm* f3 = intern.makeForm("PresidentialPardonForm", "Pres");
-        intern.makeForm("UnknownForm", "Unknown");
 
         std::cout << YELLOW << "\n--- Shrubbery Creation form ---\n" << RESET;
         boss.signForm(*f1);
@@ -46,6 +45,9 @@ int main() {
         delete f1;
         delete f2;
         delete f3;
+
+        std::cout << YELLOW << "\n--- Create an unknown form ---\n" << RESET;
+        intern.makeForm("UnknownForm", "Unknown");
     }
     catch (std::exception &e) {
         std::cout << RED << e.what() << '\n' << RESET;

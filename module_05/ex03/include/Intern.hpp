@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 14:55:23 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/02 16:48:20 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:38:12 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ class Intern {
         Intern& operator=(const Intern& other);
         ~Intern();
 
-        AForm*    makeForm(std::string name, std::string target);
+        AForm*  makeForm(std::string name, std::string target);
+
+        class   UnknownFormException : public std::exception {
+            public:
+                const char* what() const throw();
+        } ;
 } ;
 
 #endif
