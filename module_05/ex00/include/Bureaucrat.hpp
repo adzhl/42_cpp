@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 15:55:08 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/04/24 10:53:24 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/05 09:26:58 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,6 @@ class Bureaucrat {
 std::ostream&               operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif
+
+// Exceptions handle errors gracefully
+// We won't need to constantly check return values or error codes
