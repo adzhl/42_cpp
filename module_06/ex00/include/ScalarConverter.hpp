@@ -6,13 +6,14 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 08:14:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/06 15:04:21 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:08:17 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 
+# include <iostream>
 # include <string>
 
 class ScalarConverter {
@@ -24,6 +25,16 @@ class ScalarConverter {
         ScalarConverter(const ScalarConverter& other);
         ScalarConverter&    operator=(const ScalarConverter& other);
         ~ScalarConverter();
+} ;
+
+enum LiteralType {
+    CHAR,
+    INT,
+    FLOAT,
+    DOUBLE,
+    PSEUDO_FLOAT,
+    PSEUDO_DOUBLE,
+    INVALID
 } ;
 
 #endif

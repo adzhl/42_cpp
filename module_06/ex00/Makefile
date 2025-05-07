@@ -1,4 +1,4 @@
-NAME = onvert
+NAME = convert
 
 CC = c++
 
