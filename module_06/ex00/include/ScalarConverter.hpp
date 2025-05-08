@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 08:14:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/08 09:03:24 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/08 10:35:00 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <iostream>
 # include <string>
+# include <climits>
+# include <iomanip>
+# include <cstdlib>
 
 class ScalarConverter {
     public:
@@ -33,6 +36,8 @@ class ScalarConverter {
 
         static bool checkNum(std::string& literal);
 
+        static void print(char c, long i, float f, double d);
+
         static int  setType(std::string& literal);
 } ;
 
@@ -41,8 +46,6 @@ enum LiteralType {
     INT,
     FLOAT,
     DOUBLE,
-    PSEUDO_FLOAT,
-    PSEUDO_DOUBLE,
     INVALID
 } ;
 

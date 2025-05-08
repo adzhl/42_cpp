@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
 MAIN = main.cpp 
 
-SRC = $(addprefix src/, ScalarConverter.cpp)
+SRC = $(addprefix src/, ScalarConverter.cpp Utils.cpp)
 
 SRC_DIR = src
 
