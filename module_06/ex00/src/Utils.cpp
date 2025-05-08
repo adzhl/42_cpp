@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 10:33:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/08 11:13:19 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/08 22:05:42 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ bool    ScalarConverter::checkNum(std::string& literal) {
 void    ScalarConverter::print(char c, long i, float f, double d) {
     // Char
     std::cout << "char: ";
-    if (i < 0 || i > 120) { std::cout << "impossible\n"; }
+    if (i < 0 || i > 127) { std::cout << "impossible\n"; }
 
     else if (!std::isprint(c)) { std::cout << "Non displayable\n"; }
 
