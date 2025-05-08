@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 12:57:27 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/08 13:30:40 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/08 14:46:33 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void    identify(Base* p) {
     else if (dynamic_cast<B*>(p)) std::cout << "Base pointer: B\n";
 
     else if (dynamic_cast<C*>(p)) std::cout << "Base pointer: C\n";
+
+    else std::cout << "Unknown type\n";
 }
 
 // casting Base& to a Derived&
@@ -43,17 +45,19 @@ void    identify(Base& p) {
         (void)dynamic_cast<A&>(p);
         std::cout << "Base reference: A\n";
         return ;
-    } catch (...) {}
+    } catch (std::exception&) {}
 
     try {
         (void)dynamic_cast<B&>(p);
         std::cout << "Base reference: B\n";
         return ;
-    } catch (...) {}
+    } catch (std::exception&) {}
 
     try {
         (void)dynamic_cast<C&>(p);
         std::cout << "Base reference: C\n";
         return ;
-    } catch (...) {}
+    } catch (std::exception&) {}
+
+    std::cout << "Unknown type\n";
 }
