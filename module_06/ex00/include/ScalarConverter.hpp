@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 08:14:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/08 10:35:00 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/08 12:40:51 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ enum LiteralType {
 
 // Types of casts
 // 1. STATIC CAST
-//  - standard type conversions
+//  - standard type conversions (between things that are related)
 //  - converting between numeric types (int, float, double)
 //  - upcasting in inheritance (Derived* to Base*)
 //
