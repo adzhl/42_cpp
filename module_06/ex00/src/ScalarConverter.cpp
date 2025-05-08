@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 09:21:36 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/08 10:34:16 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:22:11 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ ScalarConverter::~ScalarConverter() {}
 // find('.') != npos(not found) : if '.' is found in string
 int  ScalarConverter::setType(std::string& literal) {
     if (literal.empty()) { return (INVALID); }
+
+    if (literal[0] == '.') { if (!literal[1] || literal[1] == 'f') return (INVALID); }
 
     if (isPseudoFloat(literal)) { return (FLOAT); }
 
