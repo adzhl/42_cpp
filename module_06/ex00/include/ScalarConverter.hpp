@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 08:14:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/07 13:08:17 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/08 09:03:24 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ class ScalarConverter {
         ScalarConverter(const ScalarConverter& other);
         ScalarConverter&    operator=(const ScalarConverter& other);
         ~ScalarConverter();
+
+        static bool isChar(std::string& literal);
+        static bool isPseudoFloat(std::string& literal);
+        static bool isPseudoDouble(std::string& literal);
+        static bool isFloat(std::string& literal);
+
+        static bool checkNum(std::string& literal);
+
+        static int  setType(std::string& literal);
 } ;
 
 enum LiteralType {
