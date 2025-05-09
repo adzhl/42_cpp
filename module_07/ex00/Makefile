@@ -1,4 +1,4 @@
-NAME = 
+NAME = whatever
 
 CC = c++
 
@@ -16,12 +16,12 @@ OBJ = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(MAIN) -o $(NAME)
+$(NAME): 
+	$(CC) $(CFLAGS) $(MAIN) -o $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+# $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+# 	@mkdir -p $(OBJ_DIR)
+# 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)
