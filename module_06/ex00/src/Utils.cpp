@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/08 10:33:35 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/08 22:05:42 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:40:20 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,19 @@ void    ScalarConverter::print(char c, long i, float f, double d) {
 
     // Float
     std::cout << "float: ";
-    std::cout << std::fixed << std::setprecision(1) << f << "f\n";
+    if (std::isnan(f)) { std::cout << "nanf\n"; } 
+    
+    else if (std::isinf(f)) { std::cout << (f < 0 ? "-inff\n" : "+inff\n"); } 
+    
+    else std::cout << std::fixed << std::setprecision(1) << f << "f\n";
 
     // Double
     std::cout << "double: ";
-    std::cout << std::fixed << std::setprecision(1) << d << '\n';
+    if (std::isnan(d)) { std::cout << "nan\n"; } 
+    
+    else if (std::isinf(d)) { std::cout << (d < 0 ? "-inf\n" : "+inf\n"); } 
+
+    else std::cout << std::fixed << std::setprecision(1) << d << '\n';
 }
+
+// std::isinf() check - checks if value has overflowed
