@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 10:46:19 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/12 14:53:24 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/12 15:10:03 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,21 @@ int main()
     std::cout << "numbers[0] after refill: " << numbers[0] << '\n';
 
     delete[] mirror;
+
+    std::cout << YELLOW << "\n=== Testing with std::string ===\n" << RESET;
+    Array<std::string> stringArray(3);
+    stringArray[0] = "Hello";
+    stringArray[1] = "World";
+    stringArray[2] = "!";
+    for (unsigned int i = 0; i < stringArray.size(); ++i)
+        std::cout << stringArray[i] << ' ';
+    std::cout << '\n';
+
+    // Testing copy and assignment
+    Array<std::string> copyArray = stringArray;
+    copyArray[1] = "42";
+    std::cout << "Original: " << stringArray[1] << '\n';
+    std::cout << "Copy: " << copyArray[1] << '\n';
 
     return (0);
 }
