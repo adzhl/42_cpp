@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:38:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/09 13:19:56 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/12 13:43:31 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ class Array {
         unsigned int    size() const;
 } ;
 
-#include "Array.tpp"
+# include "Array.tpp"
 
 #endif
