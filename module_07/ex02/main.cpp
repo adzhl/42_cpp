@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 10:46:19 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/12 15:10:03 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/13 08:22:25 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,12 @@ int main()
 
     std::cout << YELLOW << "After modifying tmp[0] and tmp[1]:\n" << RESET;
     std::cout << "numbers[0] after: " << numbers[0] << '\n';
-    std::cout << "tmp[0] after: " << tmp[0] << "\n\n";
+    std::cout << "tmp[0] after: " << tmp[0] << "\n";
+    std::cout << "test[0] after: " << test[0] << "\n\n";
 
     std::cout << "numbers[1] after: " << numbers[1] << '\n';
-    std::cout << "tmp[1] after: " << tmp[1] << "\n\n";
+    std::cout << "tmp[1] after: " << tmp[1] << "\n";
+    std::cout << "test[1] after: " << test[1] << "\n\n";
 
     test[0] = 55555;
     test[1] = 66666;
@@ -79,7 +81,7 @@ int main()
         if (mirror[i] != numbers[i])
         {
             std::cerr << "Mismatch at index " << i << '\n';
-            return 1;
+            return (1);
         }
     }
 
