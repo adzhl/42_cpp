@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 10:17:38 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/15 11:18:28 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/15 13:56:08 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <deque>
+
+# define RESET   "\033[0m"
+# define RED     "\033[31m"
+# define YELLOW  "\033[33m"
 
 int main() {
     try {
-        std::cout << "=== Testing with std::vector ===" << '\n';
+        std::cout << YELLOW << "=== Testing with std::vector ===" << '\n' << RESET;
         std::vector<int> vec;
         for (int i = 0; i < 5; ++i)
             vec.push_back(i * 10);
@@ -30,11 +35,11 @@ int main() {
         easyfind(vec, 100);
 
     } catch (const std::exception& e) {
-        std::cout << "Exception: " << e.what() << '\n';
+        std::cout << RED << "Exception: " << e.what() << '\n' << RESET;
     }
 
     try {
-        std::cout << "\n=== Testing with std::list ===" << '\n';
+        std::cout << YELLOW << "\n=== Testing with std::list ===" << '\n' << RESET;
         std::list<int> lst;
         for (int i = 0; i < 5; ++i)
             lst.push_back(i * 15);
@@ -46,17 +51,37 @@ int main() {
         easyfind(lst, 1000);
 
     } catch (const std::exception& e) {
-        std::cout << "Exception: " << e.what() << '\n';
+        std::cout << RED << "Exception: " << e.what() << '\n' << RESET;
+    }
+
+        try {
+        std::cout << YELLOW << "\n=== Testing with std::deque ===" << '\n' << RESET;
+        std::deque<int> deque;
+        for (int i = 0; i < 5; ++i)
+            deque.push_back(i * 20);
+
+        std::deque<int>::iterator itDeq = easyfind(deque, 40);
+        std::cout << "Found in deque: " << *itDeq << '\n';
+
+        // Test not found
+        easyfind(deque, 1000);
+
+    } catch (const std::exception& e) {
+        std::cout << RED << "Exception: " << e.what() << '\n' << RESET;
     }
 
     try {
-        std::cout << "\n=== Testing with const container ===" << '\n';
+        std::cout << YELLOW << "\n=== Testing with const container ===" << '\n' << RESET;
         const int arr[] = { 10, 20, 30 };
         const std::vector<int> constVec(arr, arr + 3);
-        easyfind(constVec, 20);
-        std::cout << "Found in const vector\n";
+
+        std::vector<int>::const_iterator itVec = easyfind(constVec, 20);
+        std::cout << "Found in const vector: " << *itVec << '\n';
+
+        easyfind(constVec, 40);
+
     } catch (const std::exception& e) {
-        std::cout << "Exception: " << e.what() << '\n';;
+        std::cout << RED << "Exception: " << e.what() << '\n' << RESET;
     }
 
     return (0);

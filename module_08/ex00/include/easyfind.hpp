@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 10:16:05 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/15 11:17:17 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/15 13:46:51 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,19 @@ typename T::iterator easyfind(T& container, int value) {
 }
 
 #endif
+
+// Vectors - ready-made data structures that stores elements
+
+// easyfind template 
+// takes in any STL (standard template library) container of integers
+// uses STL algorithm (std::find) to look for the value
+// returns an iterator (pointer) to the found element 
+// STL style - algorithm work on iterators, not on containers directly
+
+// std::vector (Dynamic array) - by index
+// std::deque (Double-ended queue) - push/pop front and back - access
+// std::list (Doubly linked list) - find
+
+
+// std::map (Key-value pairs) - find elements by key (fast lookup)
+// std::set (Unique sorted elements) - sorted elements
