@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 10:17:38 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/15 13:56:08 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/19 08:56:19 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,3 +86,9 @@ int main() {
 
     return (0);
 }
+
+// std::vector constructor
+// vector(inputIterator first, inputIterator last)
+
+// C++ 11 only
+// const std::vector<int> constVec = { 10, 20, 30 }; 
