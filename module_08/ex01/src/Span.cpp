@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 09:26:34 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/20 07:56:38 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/20 07:58:17 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void Span::addNumber(int num) {
 
 int Span::shortestSpan() const {
     if (_data.size() < 2)
-        throw std::logic_error("Not enough elements to find a span.");
+        throw Span::NotEnoughElementsException();;
 
     std::vector<int> sorted = _data;
     std::sort(sorted.begin(), sorted.end());

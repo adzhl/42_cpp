@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 14:44:00 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/19 09:52:10 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/20 09:33:40 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <vector>
 # include <algorithm>
+# include <limits>
+# include <stdexcept>
 
 class Span {
     private:
