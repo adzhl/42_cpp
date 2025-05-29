@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 10:16:05 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/19 08:47:06 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/29 09:26:41 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,19 @@ typename T::iterator easyfind(T& container, int value) {
 
 #endif
 
+// STL (Standard Template Library) includes:
 // Containers - ready-made data structures that stores elements
-// Use iterators to transverse through containers
+// Iterators - to transverse through containers (like a pointer/cursor)
+// Algorithm - functions that operate on containers via iterators
 
-// easyfind template 
-// takes in any STL (standard template library) container of integers
-// uses STL algorithm (std::find) to look for the value
-// returns an iterator (pointer) to the found element 
 // STL style - algorithm work on iterators, not on containers directly
 
+// easyfind template 
+// takes in any STL container of integers
+// uses STL algorithm (std::find) to look for the value
+// returns an iterator (pointer) to the found element 
+
+// Sequence containers
 // std::vector (Dynamic array) - [1, 2, 3, 4]
 // std::deque (Double-ended queue) - [1, 2, 3] (push front/ back)
 // std::list (Doubly linked list) - 1 <-> 2 <-> 3
