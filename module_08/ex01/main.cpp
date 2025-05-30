@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:10:58 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/19 11:46:27 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/05/30 10:54:13 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ int main() {
         std::cout << "Shortest Span: " << sp.shortestSpan() << '\n';
         std::cout << "Longest Span: " << sp.longestSpan() << '\n';
 
-        // Uncommenting this should throw an error
-        // sp.addNumber(42);
+        sp.addNumber(42);
     }
     catch (std::exception &e) {
         std::cout << RED << e.what() << RESET << '\n';
