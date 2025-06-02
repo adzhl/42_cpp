@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:10:58 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/02 10:07:16 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:14:46 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int main() {
         sp.addNumber(9);
         sp.addNumber(11);
 
+        std::cout << "Data in Span: ";
+        printContainer(sp.getNumbers());
         std::cout << "Shortest Span: " << sp.shortestSpan() << '\n';
         std::cout << "Longest Span: " << sp.longestSpan() << '\n';
 
@@ -91,6 +93,8 @@ int main() {
         for (int i = 0; i < 10000; ++i)
             bigSpan.addNumber(rand());
 
+        // std::cout << "Data in span: ";
+        // printContainer(bigSpan.getNumbers());
         std::cout << "Shortest Span: " << bigSpan.shortestSpan() << '\n';
         std::cout << "Longest Span: " << bigSpan.longestSpan() << '\n';
     }
@@ -110,6 +114,9 @@ int main() {
         rangeSpan.addNumber(100);
         rangeSpan.addNumber(150);
         rangeSpan.addNumber(200);
+
+        std::cout << "Data in span: ";
+        printContainer(rangeSpan.getNumbers());
         std::cout << "Shortest Span: " << rangeSpan.shortestSpan() << '\n';
         std::cout << "Longest Span: " << rangeSpan.longestSpan() << '\n';
     }
