@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 09:26:34 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/20 07:58:17 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/02 09:30:17 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ Span::~Span() {}
 
 unsigned int Span::size() const { return (_data.size()); }
 
+std::vector<int>& Span::getNumbers() { return (_data); }
+
 void Span::addNumber(int num) {
     if (_data.size() >= _maxSize) { throw Span::FullSpanException(); }
 
@@ -49,7 +51,7 @@ int Span::shortestSpan() const {
         if (diff < minSpan)
             minSpan = diff;
     }
-    return minSpan;
+    return (minSpan);
 }
 
 int Span::longestSpan() const {

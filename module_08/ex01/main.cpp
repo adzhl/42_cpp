@@ -6,22 +6,57 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:10:58 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/30 10:54:13 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:07:16 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <iostream>
-#include <vector>
-#include <cstdlib>  // rand, srand
-#include <ctime>    // time
+#include <cstdlib> 
+#include <ctime>    
 
 # define RESET   "\033[0m"
 # define RED     "\033[31m"
 # define YELLOW  "\033[33m"
 
+template <typename T>
+void    printContainer(T& container) {
+    std::cout << "{ ";
+    for (typename T::iterator i = container.begin(); i != container.end(); ++i) {
+        std::cout << *i;
+
+        if (i + 1 != container.end())
+            std::cout << ", ";
+    }
+    std::cout << " }\n";
+}
+
+void constructorTest() {
+    std::cout << YELLOW << "=== CONSTRUCTOR TEST ===" << RESET << '\n';
+    std::cout << YELLOW << "Default Constructor:" << RESET << '\n';
+    Span def;
+    std::cout << "Default constructor size: " << def.size() << '\n';
+
+    std::cout << YELLOW << "\nCopy Constructor:" << RESET << '\n';
+    Span ori(3);
+    ori.addNumber(1);
+    ori.addNumber(2);
+    ori.addNumber(3);
+    Span copy(ori);
+    Span another = copy;
+
+    std::cout << "Size of copy: " << copy.size() << '\n';
+    std::cout << "Data in copy: ";
+    printContainer(copy.getNumbers());
+    std::cout << "Size of another: " << another.size() << '\n';
+    std::cout << "Data in another: ";
+    printContainer(another.getNumbers());
+}
+
 int main() {
-    std::cout << YELLOW << "=== BASIC TEST ===" << RESET << '\n';
+    constructorTest();
+
+    std::cout << YELLOW << "\n=== BASIC TEST ===" << RESET << '\n';
     try {
         Span sp = Span(5);
         sp.addNumber(6);

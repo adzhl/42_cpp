@@ -6,13 +6,14 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 14:44:00 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/05/20 09:33:40 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:02:29 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
+#include <iostream>
 # include <vector>
 # include <algorithm>
 # include <limits>
@@ -30,11 +31,13 @@ class Span {
         Span& operator=(const Span& other);
         ~Span();
 
-        void            addNumber(int n);
-        int             shortestSpan() const;
-        int             longestSpan() const;
+        void                addNumber(int n);
+        int                 shortestSpan() const;
+        int                 longestSpan() const;
 
-        unsigned int    size() const;
+        unsigned int        size() const;
+        std::vector<int>&   getNumbers();
+        void                printContainer();
 
         template <typename Iterator>
         void            addRange(Iterator begin, Iterator end) {
