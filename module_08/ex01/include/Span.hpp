@@ -6,18 +6,19 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 14:44:00 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/02 10:02:29 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:19:58 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-#include <iostream>
+# include <iostream>
 # include <vector>
 # include <algorithm>
 # include <limits>
 # include <stdexcept>
+# include <numeric>
 
 class Span {
     private:

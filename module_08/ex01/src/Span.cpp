@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 09:26:34 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/02 09:30:17 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/02 10:28:31 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void Span::addNumber(int num) {
     _data.push_back(num);
 }
 
+// adjacent_difference : find difference between each pair
+// [ a0, (a1 - a0), (a2 - a1), ..., (aN - aN-1) ] 
 int Span::shortestSpan() const {
     if (_data.size() < 2)
         throw Span::NotEnoughElementsException();;
@@ -45,12 +47,11 @@ int Span::shortestSpan() const {
     std::vector<int> sorted = _data;
     std::sort(sorted.begin(), sorted.end());
 
-    int minSpan = std::numeric_limits<int>::max();
-    for (size_t i = 1; i < sorted.size(); ++i) {
-        int diff = sorted[i] - sorted[i - 1];
-        if (diff < minSpan)
-            minSpan = diff;
-    }
+    std::vector<int> diff(sorted.size());
+    std::adjacent_difference(sorted.begin(), sorted.end(), diff.begin());
+
+    int minSpan = *std::min_element(diff.begin() + 1, diff.end());
+
     return (minSpan);
 }
 
