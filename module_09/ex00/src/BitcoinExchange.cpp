@@ -6,9 +6,148 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 11:58:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/02 11:58:29 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/03 14:51:08 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange() {}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) { *this = other; }
+
+BitcoinExchange&    BitcoinExchange::operator=(const BitcoinExchange& other) {
+    if (this != &other) {
+        this->_database = other._database;
+    }
+    return (*this);
+}
+
+BitcoinExchange::~BitcoinExchange() {}
+
+
+
+bool    BitcoinExchange::loadDatabase(const std::string& filename) {
+    std::ifstream data(filename.c_str());
+    if (!data) { std::cerr << RED << "Error: Cannot open file!\n" << RESET; return (1); }
+
+    std::string header;
+    std::getline(data, header);
+    if (header != "date,exchange_rate") { std::cerr << RED << "Error: Wrong header! Must be <date,exchange_rate>\n" << RESET; return (1); }
+
+    std::string line;
+    while (std::getline(data, line)) {
+        std::string date, value;
+        std::stringstream ss(line);
+
+        if (!std::getline(ss, date, ',') || !std::getline(ss, value))
+            continue;
+
+        date = trim(date);
+        if (!validDate(date)) continue;
+
+        char* endptr;
+        float rate = std::strtof(value.c_str(), &endptr);
+        if (*endptr != '\0') { std::cerr << RED << "Error: value not a number.\n" << RESET; return (false); }
+
+        // std::cout << "Date: '" << date << "'\n";
+        // std::cout << "Rate: '" << rate << "'\n";
+        _database[date] = rate;
+    }
+    // std::cout << GREEN << "Database loaded!\n" << RESET;
+    return (true);
+}
+
+void    BitcoinExchange::processInput(const std::string& filename) {
+    std::ifstream data(filename.c_str());
+    if (!data) { std::cerr << "Error: Cannot open file!\n"; return; }
+
+    std::string header;
+    std::getline(data, header);
+    if (header != "date | value") { std::cerr << RED << "Error: Wrong header! Must be <date | value>\n" << RESET; return; }
+
+    std::string line;
+    while (std::getline(data, line)) {
+        std::string date, strValue;
+        std::stringstream ss(line);
+
+        if (!std::getline(ss, date, '|') || !std::getline(ss, strValue)) {
+            std::cerr << RED << "Error: bad input => " << YELLOW << line << '\n' << RESET;
+            continue;
+        }
+
+        date = trim(date);
+        if (!validDate(date)) continue;
+
+        strValue = trim(strValue);
+        float value;
+        if (!validValue(strValue, value)) continue;
+
+        // std::cout << "Date: '" << date << "'\n";
+        // std::cout << "Value: '" << value << "'\n";
+
+        float rate = getRate(date);
+        // std::cout << "Rate: " << rate << '\n';
+        std::cout << date << " => " << value << " = " << (rate * value) << '\n';
+    }
+}
+
+// lower_bound() : returns iterator to the first element
+// if date is less than the first element in the map container, the iterator will return .begin()
+float   BitcoinExchange::getRate(const std::string& date) const {
+    std::map<std::string, float>::const_iterator it = _database.lower_bound(date);
+
+    if ((it != _database.end() && it->first == date) || it == _database.begin()) { return (it->second); }
+
+    --it;
+    return (it->second);
+}
+
+
+// Helper functions
+std::string BitcoinExchange::trim(const std::string& str) {
+    size_t start = str.find_first_not_of(" \t\r\n");
+    size_t end = str.find_last_not_of(" \t\r\n");
+
+    if (start == std::string::npos) return ("");
+
+    return (str.substr(start, end - start + 1));
+}
+
+bool BitcoinExchange::validDate(std::string& date) const {
+    if (date.length() != 10 || date[4] != '-' || date[7] != '-') { std::cerr << RED << "Error: Wrong date format! Must be <YYYY-MM-DD>\n" << RESET; return (false); }
+
+    for (int i = 0; i < 10; ++i) {
+        if (i == 4 || i == 7) continue;
+
+        if (!std::isdigit(date[i])) { std::cerr << RED << "Error: Non-digits detected in date!\n" << RESET; return (false); }
+    }
+
+    int month = std::atoi(date.substr(5, 2).c_str());
+    int day = std::atoi(date.substr(8, 2).c_str());
+
+    // std::cout << "Year: " << year << '\n';
+    // std::cout << "month: " << month << '\n';
+    // std::cout << "day: " << day << '\n';
+
+    if (month < 1 || month > 12 || day < 1 || day > 31) { std::cerr << RED << "Error: Date does not exist in database!\n" << RESET; return (false); }
+
+    return (true);
+}
+
+bool BitcoinExchange::validValue(std::string& input, float& value) const {
+    if (input.empty()) { std::cerr << RED << "Error: no input.\n" << RESET; return (false); }
+
+    char* endptr;
+    value = strtof(input.c_str(), &endptr);
+
+    if (*endptr != '\0') { std::cerr << RED << "Error: input not a number.\n" << RESET; return (false); }
+
+    // std::cout << "Value in long: " << value << '\n';
+
+    if (value < 0) { std::cerr << RED << "Error: not a positive number.\n" << RESET; return (false); }
+
+    if (value > 1000.0f) { std::cerr << RED << "Error: too large a number.\n" << RESET; return (false); }
+
+    return (true);
+}
