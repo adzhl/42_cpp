@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 11:58:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/04 10:15:46 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/04 10:25:29 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,8 @@ bool    BitcoinExchange::loadDatabase(const std::string& filename) {
         float rate = std::strtof(value.c_str(), &endptr);
         if (*endptr != '\0') { std::cerr << RED << "Error: value not a number.\n" << RESET; return (false); }
 
-        // std::cout << "Date: '" << date << "'\n";
-        // std::cout << "Rate: '" << rate << "'\n";
         _database[date] = rate;
     }
-    // std::cout << GREEN << "Database loaded!\n" << RESET;
     return (true);
 }
 
@@ -83,11 +80,7 @@ void    BitcoinExchange::processInput(const std::string& filename) {
         float value;
         if (!validValue(strValue, value)) continue;
 
-        // std::cout << "Date: '" << date << "'\n";
-        // std::cout << "Value: '" << value << "'\n";
-
         float rate = getRate(date);
-        // std::cout << "Rate: " << rate << '\n';
         std::cout << date << " => " << value << " = " << (rate * value) << '\n';
     }
 }
@@ -137,10 +130,6 @@ bool BitcoinExchange::validDate(std::string& date) const {
     int month = std::atoi(date.substr(5, 2).c_str());
     int day = std::atoi(date.substr(8, 2).c_str());
 
-    // std::cout << "Year: " << year << '\n';
-    // std::cout << "month: " << month << '\n';
-    // std::cout << "day: " << day << '\n';
-
     if (month < 1 || month > 12 || day < 1 || day > 31) { std::cerr << RED << "Error: Date does not exist in database!\n" << RESET; return (false); }
 
     if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) { std::cerr << RED << "Error: Month only has 30 days!\n" << RESET; return (false); }
@@ -160,8 +149,6 @@ bool BitcoinExchange::validValue(std::string& input, float& value) const {
     value = strtof(input.c_str(), &endptr);
 
     if (*endptr != '\0') { std::cerr << RED << "Error: input not a number.\n" << RESET; return (false); }
-
-    // std::cout << "Value in long: " << value << '\n';
 
     if (value < 0) { std::cerr << RED << "Error: not a positive number.\n" << RESET; return (false); }
 
