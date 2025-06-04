@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 10:10:58 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/02 10:14:46 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/04 09:41:00 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,21 @@ int main() {
         Span overflow(3);
         std::vector<int> overflowData(4, 1); // 4 elements initialized to 1
         overflow.addRange(overflowData.begin(), overflowData.end());
+    }
+    catch (std::exception &e) {
+        std::cout << RED << e.what() << RESET << '\n';
+    }
+
+    try {
+        std::cout << YELLOW << "\n=== NEGATIVE NUMBER TEST ===" << RESET << '\n';
+        Span span(2);
+        span.addNumber(2147483647);
+        span.addNumber(-2147483648);
+
+        std::cout << "Data in span: ";
+        printContainer(span.getNumbers());
+        std::cout << "Shortest Span: " << span.shortestSpan() << '\n';
+        std::cout << "Longest Span: " << span.longestSpan() << '\n';
     }
     catch (std::exception &e) {
         std::cout << RED << e.what() << RESET << '\n';

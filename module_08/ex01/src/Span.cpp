@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 09:26:34 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/02 10:28:31 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/04 09:40:04 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ std::vector<int>& Span::getNumbers() { return (_data); }
 
 void Span::addNumber(int num) {
     if (_data.size() >= _maxSize) { throw Span::FullSpanException(); }
+
+    if (num < 0 || num > INT_MAX) { throw Span::NotIntException(); }
 
     _data.push_back(num);
 }

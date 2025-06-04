@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 14:44:00 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/02 10:19:58 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/04 09:38:47 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include <vector>
 # include <algorithm>
-# include <limits>
+# include <climits>
 # include <stdexcept>
 # include <numeric>
 
@@ -56,6 +56,11 @@ class Span {
             public:
                 const char* what() const throw() { return ("Not enough elements to find a span!"); }
         } ;
+
+        class NotIntException : public std::exception {
+            public:
+                const char* what() const throw() { return ("Number must be a positive integer!"); }
+        };
 } ;
 
 #endif
