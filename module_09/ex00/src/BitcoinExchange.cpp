@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 11:58:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/03 14:51:08 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/04 10:15:46 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,16 @@ std::string BitcoinExchange::trim(const std::string& str) {
     return (str.substr(start, end - start + 1));
 }
 
+//  Rule of leap year calculation:
+//      Rule 1: year is divisible by 4
+//      Rule 2: if year is not divisible by 100 => Leap year!
+//              if year is divisible by 100 proceed to rule 3
+//      Rule 3: if year is divisible by 400 => Leap year!
+//
+//  Earth’s orbit isn’t exactly 365.25 days (it’s ~365.2422 days).
+//  Adding a leap day every 4 years (% 4) overcounts by ~11 minutes per year.
+//  After ~400 years, this adds up to 3 extra days.
+//  The % 100 and % 400 rules remove these extra days.
 bool BitcoinExchange::validDate(std::string& date) const {
     if (date.length() != 10 || date[4] != '-' || date[7] != '-') { std::cerr << RED << "Error: Wrong date format! Must be <YYYY-MM-DD>\n" << RESET; return (false); }
 
@@ -123,6 +133,7 @@ bool BitcoinExchange::validDate(std::string& date) const {
         if (!std::isdigit(date[i])) { std::cerr << RED << "Error: Non-digits detected in date!\n" << RESET; return (false); }
     }
 
+    int year = std::atoi(date.substr(0, 4).c_str());
     int month = std::atoi(date.substr(5, 2).c_str());
     int day = std::atoi(date.substr(8, 2).c_str());
 
@@ -131,6 +142,13 @@ bool BitcoinExchange::validDate(std::string& date) const {
     // std::cout << "day: " << day << '\n';
 
     if (month < 1 || month > 12 || day < 1 || day > 31) { std::cerr << RED << "Error: Date does not exist in database!\n" << RESET; return (false); }
+
+    if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) { std::cerr << RED << "Error: Month only has 30 days!\n" << RESET; return (false); }
+
+    if (month == 2) {
+        bool leapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+        if (day > (leapYear ? 29 : 28)) { std::cerr << RED << "Error: February in this year only has " << (leapYear ? "29 " : "28 ") << "days!\n" << RESET; return (false); }
+    }
 
     return (true);
 }
