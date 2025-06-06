@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 10:28:04 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/04 10:42:31 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/06 09:07:13 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,22 @@
 # define BLUE    "\033[34m"
 
 # include <iostream>
+# include <stack>
+# include <sstream>
+
+class RPN {
+    private:
+        bool    validOperator(char c) const;
+        bool    validToken(char c) const;
+        int     handleOperation(char op, int a, int b) const;
+
+    public:
+        RPN();
+        RPN(const RPN& other);
+        RPN&    operator=(const RPN& other);
+        ~RPN();
+
+        int evaluate(const std::string& expression);
+} ;
 
 #endif
