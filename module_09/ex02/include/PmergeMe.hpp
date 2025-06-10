@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/09 09:56:34 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/10 11:10:23 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,23 @@
 # define BLUE    "\033[34m"
 
 # include <iostream>
+# include <vector>
+# include <sstream>
+# include <climits>
+# include <set>
+# include <list>
+
+class PmergeMe {
+    public:
+        PmergeMe();
+        PmergeMe(const PmergeMe& other);
+        PmergeMe& operator=(const PmergeMe& other);
+        ~PmergeMe();
+
+        template <typename Container1, typename Container2>
+        void    validInput(const std::vector<std::string>& input, Container1& c1, Container2& c2);
+} ;
+
+# include "PmergeMe.tpp"
 
 #endif
