@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/10 11:10:38 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/10 13:03:05 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,25 @@ void    PmergeMe::validInput(const std::vector<std::string>& input, Container1& 
     std::cout << "\nContainer 2: ";
     printContainer(c2);
 }
+
+template <typename Container1, typename Container2>
+void  PmergeMe::sortTime(Container1& c1, Container2& c2) {
+    clock_t startC1 = clock();
+    (void)c1;
+    std::cout << "Sorting c1 should be done here\n";
+    clock_t endC1 = clock();
+
+    clock_t startC2 = clock();
+    (void)c2;
+    std::cout << "Sorting c2 should be done here\n";
+    clock_t endC2 = clock();
+
+    double timeC1 = (static_cast<double>(endC1 - startC1) / CLOCKS_PER_SEC * 1000000);
+    double timeC2 = (static_cast<double>(endC2 - startC2) / CLOCKS_PER_SEC * 1000000);
+
+    std::cout << std::fixed;
+    std::cout << "Time to process a range of " << c1.size() << " elements with std::vector : " << timeC1 << " us\n";
+    std::cout << "Time to process a range of " << c2.size() << " elements with std::list : " << timeC2 << " us\n";
+}
+
+
