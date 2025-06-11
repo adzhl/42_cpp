@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/11 10:47:41 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:09:45 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,7 @@ void    PmergeMe::validInput(const std::vector<std::string>& input, Container1& 
 template <typename Container1, typename Container2>
 void  PmergeMe::sortTime(Container1& c1, Container2& c2) {
     clock_t startC1 = clock();
-    (void)c1;
-    std::cout << "Sorting c1 should be done here\n";
+    mergeInsertSort(c1);
     clock_t endC1 = clock();
 
     clock_t startC2 = clock();
@@ -80,7 +79,53 @@ void  PmergeMe::sortTime(Container1& c1, Container2& c2) {
 
     std::cout << std::fixed;
     std::cout << "Time to process a range of " << c1.size() << " elements with std::vector : " << timeC1 << " us\n";
-    std::cout << "Time to process a range of " << c2.size() << " elements with std::list : " << timeC2 << " us\n";
+    std::cout << "Time to process a range of " << c2.size() << " elements with std::deque : " << timeC2 << " us\n";
 }
 
+template <typename Container>
+void PmergeMe::insertSorted(Container& sorted, int value) {
+    typename Container::iterator it = std::lower_bound(sorted.begin(), sorted.end(), value);
+    sorted.insert(it, value);
+}
 
+template <typename Container>
+void PmergeMe::mergeInsertSort(Container& container) {
+    if (container.size() <= 1) return;
+
+    std::vector<std::pair<int, int> > pairs;
+    for (size_t i = 0; i < container.size() - 1; i += 2) {
+        if (container[i] < container[i + 1]) { pairs.push_back(std::make_pair(container[i], container[i + 1])); }
+
+        else { pairs.push_back(std::make_pair(container[i + 1], container[i])); }
+    }
+
+    Container main;
+    for (size_t i = 0; i < pairs.size(); ++i) {
+        main.push_back(pairs[i].second);
+    }
+    std::cout << "Main: ";
+    printContainer(main);
+    mergeInsertSort(main);
+
+    Container pend;
+    for (size_t i = 0; i < pairs.size(); ++i) {
+        pend.push_back(pairs[i].first);
+    }
+
+    std::cout << "Pend: ";
+    printContainer(pend);
+
+    Container sorted;
+    if (!pend.empty()) {
+        sorted.push_back(pend[0]);
+        std::vector<size_t> jacob = jacobsthal(pend.size());
+
+        for (size_t i = 0; i < jacob.size(); ++i) {
+            size_t pos = jacob[i];
+            if (pos >= pend.size()) continue;
+            insertSorted(sorted, pend[pos]);
+        }
+    }
+    std::cout << "Sorted: ";
+    printContainer(sorted);
+}

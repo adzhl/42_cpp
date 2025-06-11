@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:53:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/11 10:52:02 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:14:20 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,10 @@ int maxComparison(int argc) {
         sum += static_cast<int>(ceil(log2(value)));
     }
     return (sum);
+}
+
+
+//         Jn = (2^(n+1) + (-1)^n) / 3
+unsigned long jacobsthal(int n) {
+    return ((1 << (n + 1)) + (n % 2 == 0 ? 1 : -1)) / 3; 
 }

@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/11 10:51:58 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:14:37 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <sstream>
 # include <climits>
 # include <set>
-# include <list>
+# include <deque>
 # include <cmath>
 
 class PmergeMe {
@@ -40,10 +40,16 @@ class PmergeMe {
         template <typename Container1, typename Container2>
         void    sortTime(Container1& c1, Container2& c2);
 
+        template <typename Container>
+        void    mergeInsertSort(Container& container);
+
+        template <typename Container>
+        void    insertSorted(Container& sorted, int value);
 
 } ;
 
-int     maxComparison(int argc);
+int                maxComparison(int argc);
+unsigned long      jacobsthal(int n);
 
 # include "PmergeMe.tpp"
 

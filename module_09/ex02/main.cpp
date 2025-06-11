@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:17 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/11 10:52:07 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/11 12:55:24 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int main(int argc, char **argv) {
     try {
         PmergeMe sort;
         std::vector<int> vec;
-        std::list<int> lst;
+        std::deque<int> deq;
 
         std::vector<std::string> args(argv + 1, argv + argc);
-        sort.validInput(args, vec, lst);
-        sort.sortTime(vec, lst);
+        sort.validInput(args, vec, deq);
+        sort.sortTime(vec, deq);
         std::cout << "No of argc: " << argc - 1 << '\n';
         std::cout << "Max number of comparisons allowed: " << maxComparison(argc - 1) << '\n';
     }
