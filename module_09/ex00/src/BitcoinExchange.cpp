@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 11:58:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/04 10:25:29 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/11 10:21:19 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,27 @@ BitcoinExchange::~BitcoinExchange() {}
 
 bool    BitcoinExchange::loadDatabase(const std::string& filename) {
     std::ifstream data(filename.c_str());
-    if (!data) { std::cerr << RED << "Error: Cannot open file!\n" << RESET; return (1); }
+    if (!data) { std::cerr << RED << "Error: Cannot open database file!\n" << RESET; return (false); }
+
+    if (data.peek() == std::ifstream::traits_type::eof()) { std::cerr << RED << "Error: database is empty!\n" << RESET; return (false); }
 
     std::string header;
     std::getline(data, header);
-    if (header != "date,exchange_rate") { std::cerr << RED << "Error: Wrong header! Must be <date,exchange_rate>\n" << RESET; return (1); }
+    if (header != "date,exchange_rate") { std::cerr << RED << "Error: Wrong database header! Must be <date,exchange_rate>\n" << RESET; }
 
     std::string line;
     while (std::getline(data, line)) {
         std::string date, value;
         std::stringstream ss(line);
 
-        if (!std::getline(ss, date, ',') || !std::getline(ss, value))
-            continue;
+        if (!std::getline(ss, date, ',') || !std::getline(ss, value)) { std::cerr << RED << "Error: line in database not following this format <date,exchange_rate>\n" << RESET; return (false); }
 
         date = trim(date);
-        if (!validDate(date)) continue;
+        if (!validDate(date)) { std::cerr << RED << "Error: database date invalid!\n" << RESET; return (false); }
 
         char* endptr;
         float rate = std::strtof(value.c_str(), &endptr);
-        if (*endptr != '\0') { std::cerr << RED << "Error: value not a number.\n" << RESET; return (false); }
+        if (*endptr != '\0') { std::cerr << RED << "Error: database value not a number!\n" << RESET; return (false); }
 
         _database[date] = rate;
     }
@@ -57,11 +58,13 @@ bool    BitcoinExchange::loadDatabase(const std::string& filename) {
 
 void    BitcoinExchange::processInput(const std::string& filename) {
     std::ifstream data(filename.c_str());
-    if (!data) { std::cerr << "Error: Cannot open file!\n"; return; }
+    if (!data) { std::cerr << "Error: Cannot open input file!\n"; return; }
+
+    if (data.peek() == std::ifstream::traits_type::eof()) { std::cerr << RED << "Error: input file is empty!\n" << RESET; return; }
 
     std::string header;
     std::getline(data, header);
-    if (header != "date | value") { std::cerr << RED << "Error: Wrong header! Must be <date | value>\n" << RESET; return; }
+    if (header != "date | value") { std::cerr << RED << "Error: Wrong header! Must be <date | value>\n" << RESET; }
 
     std::string line;
     while (std::getline(data, line)) {
@@ -130,7 +133,7 @@ bool BitcoinExchange::validDate(std::string& date) const {
     int month = std::atoi(date.substr(5, 2).c_str());
     int day = std::atoi(date.substr(8, 2).c_str());
 
-    if (month < 1 || month > 12 || day < 1 || day > 31) { std::cerr << RED << "Error: Date does not exist in database!\n" << RESET; return (false); }
+    if (month < 1 || month > 12 || day < 1 || day > 31) { std::cerr << RED << "Error: Date does not exist!\n" << RESET; return (false); }
 
     if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) { std::cerr << RED << "Error: Month only has 30 days!\n" << RESET; return (false); }
 
