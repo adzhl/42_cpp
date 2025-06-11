@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/10 13:03:05 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/11 10:47:41 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ void    PmergeMe::validInput(const std::vector<std::string>& input, Container1& 
     printContainer(c2);
 }
 
+// clock()          : returns CPU time used in clock ticks (system dependent)
+// CLOCKS_PER_SEC   : converts ticks to seconds (system dependent)
+// 1 second == 1,000,000 microseconds
 template <typename Container1, typename Container2>
 void  PmergeMe::sortTime(Container1& c1, Container2& c2) {
     clock_t startC1 = clock();

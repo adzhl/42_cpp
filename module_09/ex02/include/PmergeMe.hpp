@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/10 12:59:25 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/11 10:51:58 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <climits>
 # include <set>
 # include <list>
+# include <cmath>
 
 class PmergeMe {
     public:
@@ -38,7 +39,11 @@ class PmergeMe {
 
         template <typename Container1, typename Container2>
         void    sortTime(Container1& c1, Container2& c2);
+
+
 } ;
+
+int     maxComparison(int argc);
 
 # include "PmergeMe.tpp"
 
