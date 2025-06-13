@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/12 15:40:38 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/13 09:47:17 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <set>
 # include <deque>
 # include <cmath>
+# include <algorithm>
 
 class PmergeMe {
     private:
