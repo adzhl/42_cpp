@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/13 18:55:10 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/13 19:05:32 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,14 @@ void PmergeMe::mergeInsertSort(Container& container) {
     }
 
     // sort pairs here (2 pairs, 4 pairs, 8 pairs and so on)
-    // std::sort(pairs.begin(), pairs.end())
+    if (pairs.size() > 1) {
+        Container tempMain;
+        for (size_t i = 0; i < pairs.size(); ++i) {
+            tempMain.push_back(pairs[i].second);
+        }
+        mergeInsertSort(tempMain);
+    }
+
 
     Container main;
     for (size_t i = 0; i < pairs.size(); ++i) {
@@ -135,7 +142,6 @@ void PmergeMe::mergeInsertSort(Container& container) {
     std::cout << "Main: ";
     printContainer(main);
 
-    mergeInsertSort(main);
 
     Container pend;
     for (size_t i = 0; i < pairs.size(); ++i) {
