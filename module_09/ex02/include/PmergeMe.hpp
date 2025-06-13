@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/11 15:14:37 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/12 15:40:38 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,16 @@
 # include <cmath>
 
 class PmergeMe {
+    private:
+        int comparisonCount;
+
     public:
         PmergeMe();
         PmergeMe(const PmergeMe& other);
         PmergeMe& operator=(const PmergeMe& other);
         ~PmergeMe();
+
+        int getComparisonCount() const;
 
         template <typename Container1, typename Container2>
         void    validInput(const std::vector<std::string>& input, Container1& c1, Container2& c2);
@@ -49,7 +54,8 @@ class PmergeMe {
 } ;
 
 int                maxComparison(int argc);
-unsigned long      jacobsthal(int n);
+std::vector<size_t> generateJacobsthalIndices(size_t n);
+// int      jacobsthal(int n);
 
 # include "PmergeMe.tpp"
 

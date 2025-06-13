@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/11 15:09:45 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/12 15:43:06 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,13 @@ void  PmergeMe::sortTime(Container1& c1, Container2& c2) {
     clock_t startC1 = clock();
     mergeInsertSort(c1);
     clock_t endC1 = clock();
+    std::cout << "Final vector: ";
+    printContainer(c1);
 
     clock_t startC2 = clock();
-    (void)c2;
-    std::cout << "Sorting c2 should be done here\n";
+    // mergeInsertSort(c2);
+    // std::cout << "Final deque: ";
+    // printContainer(c2);
     clock_t endC2 = clock();
 
     double timeC1 = (static_cast<double>(endC1 - startC1) / CLOCKS_PER_SEC * 1000000);
@@ -94,6 +97,7 @@ void PmergeMe::mergeInsertSort(Container& container) {
 
     std::vector<std::pair<int, int> > pairs;
     for (size_t i = 0; i < container.size() - 1; i += 2) {
+        comparisonCount++;
         if (container[i] < container[i + 1]) { pairs.push_back(std::make_pair(container[i], container[i + 1])); }
 
         else { pairs.push_back(std::make_pair(container[i + 1], container[i])); }
@@ -103,6 +107,9 @@ void PmergeMe::mergeInsertSort(Container& container) {
     for (size_t i = 0; i < pairs.size(); ++i) {
         main.push_back(pairs[i].second);
     }
+
+    if (container.size() % 2 != 0)
+        main.push_back(container.back());
     std::cout << "Main: ";
     printContainer(main);
     mergeInsertSort(main);
@@ -115,17 +122,24 @@ void PmergeMe::mergeInsertSort(Container& container) {
     std::cout << "Pend: ";
     printContainer(pend);
 
-    Container sorted;
+    Container sorted = main;
     if (!pend.empty()) {
-        sorted.push_back(pend[0]);
-        std::vector<size_t> jacob = jacobsthal(pend.size());
+        // Insert first pend directly (always index 0)
+        typename Container::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), pend[0]);
+        comparisonCount += std::distance(sorted.begin(), pos); // Count comparisons in lower_bound
+        sorted.insert(pos, pend[0]);
 
-        for (size_t i = 0; i < jacob.size(); ++i) {
-            size_t pos = jacob[i];
-            if (pos >= pend.size()) continue;
-            insertSorted(sorted, pend[pos]);
+        // Use Jacobsthal to insert remaining
+        std::vector<size_t> indices = generateJacobsthalIndices(pend.size());
+        for (size_t i = 1; i < indices.size(); ++i) {
+            size_t idx = indices[i];
+            if (idx >= pend.size()) continue;
+
+            typename Container::iterator insertPos = std::lower_bound(sorted.begin(), sorted.end(), pend[idx]);
+            comparisonCount += std::distance(sorted.begin(), insertPos); // Count comparisons
+            sorted.insert(insertPos, pend[idx]);
         }
     }
-    std::cout << "Sorted: ";
-    printContainer(sorted);
+
+    container = sorted;
 }
