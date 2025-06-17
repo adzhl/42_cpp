@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:53:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/13 17:24:36 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/17 10:32:28 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,10 @@ int maxComparison(int argc) {
 std::vector<size_t> generateJacobsthalIndices(size_t n) {
     std::vector<size_t> result;
     if (n == 0) return result;
+    if (n == 1) {
+        result.push_back(1);
+        return (result);
+    }
 
     // Generate Jacobsthal numbers: 1, 1, 3, 5, 11, 21, 43...
     std::vector<size_t> jacobsthal;
@@ -104,7 +108,7 @@ std::vector<size_t> generateJacobsthalIndices(size_t n) {
         b = next;
     }
 
-    size_t prev_jacob = 0;
+    size_t prev_jacob = 1;
     for (size_t i = 1; i < jacobsthal.size(); ++i) {
         size_t current_jacob = jacobsthal[i];
         // Clamp to available range
@@ -125,6 +129,47 @@ std::vector<size_t> generateJacobsthalIndices(size_t n) {
 
     return result;
 }
+
+// std::vector<size_t> generateJacobsthalIndices(size_t n) {
+//     std::vector<size_t> result;
+//     if (n == 0) return result;
+
+//     // Generate Jacobsthal numbers: 1, 1, 3, 5, 11, 21, 43...
+//     std::vector<size_t> jacobsthal;
+//     if (n >= 1) jacobsthal.push_back(1);
+//     if (n >= 1) jacobsthal.push_back(1);
+    
+//     size_t a = 1;
+//     size_t b = 1;
+//     while (true) {
+//         size_t next = b + 2 * a;
+//         if (next > n) break;
+//         jacobsthal.push_back(next);
+//         a = b;
+//         b = next;
+//     }
+
+//     size_t prev_jacob = 0;
+//     for (size_t i = 1; i < jacobsthal.size(); ++i) {
+//         size_t current_jacob = jacobsthal[i];
+//         // Clamp to available range
+//         size_t end_pos = std::min(current_jacob, n);
+        
+//         // Insert from end_pos down to prev_jacob + 1 (in descending order)
+//         for (size_t pos = end_pos; pos > prev_jacob; --pos) {
+//             result.push_back(pos - 1); // Convert to 0-based index
+//         }
+        
+//         prev_jacob = current_jacob;
+//     }
+    
+//     // Handle remaining elements if any
+//     for (size_t pos = n; pos > prev_jacob; --pos) {
+//         result.push_back(pos - 1); // Convert to 0-based index
+//     }
+
+//     return result;
+// }
 
 // std::vector<size_t> generateJacobsthalIndices(size_t n) {
 //     std::vector<size_t> result;

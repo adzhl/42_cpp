@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:17 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/13 17:22:16 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/17 10:28:48 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int main(int argc, char **argv) {
 //     if (n >= 1) jacobsthal.push_back(1);
 //     if (n >= 1) jacobsthal.push_back(1);
     
-//     size_t a = 1, b = 1;
+//     size_t a = 1;
+//     size_t b = 1;
 //     while (true) {
 //         size_t next = b + 2 * a;
 //         if (next > n) break;
@@ -52,12 +53,9 @@ int main(int argc, char **argv) {
 //         b = next;
 //     }
 
-//     // Generate insertion order
-//     size_t prev_jacob = 0;
-    
+//     size_t prev_jacob = 1;
 //     for (size_t i = 1; i < jacobsthal.size(); ++i) {
 //         size_t current_jacob = jacobsthal[i];
-        
 //         // Clamp to available range
 //         size_t end_pos = std::min(current_jacob, n);
         
@@ -77,9 +75,9 @@ int main(int argc, char **argv) {
 //     return result;
 // }
 
-// int main() {
-//     // (void)argc;
-//     std::vector<size_t> indices = generateJacobsthalIndices(12);
+// int main(int argc, char **argv) {
+//     (void)argc;
+//     std::vector<size_t> indices = generateJacobsthalIndices(atoi(argv[1]));
 //     printContainer(indices);
 //     return (0);
 // }

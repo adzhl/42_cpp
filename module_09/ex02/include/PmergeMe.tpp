@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/13 19:05:32 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/17 10:39:32 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void  PmergeMe::sortTime(Container1& c1, Container2& c2) {
 template <typename Container>
 void PmergeMe::insertSorted(Container& sorted, int value) {
     typename Container::iterator it = std::lower_bound(sorted.begin(), sorted.end(), value);
+    comparisonCount += std::distance(sorted.begin(), it);
     sorted.insert(it, value);
 }
 
@@ -131,6 +132,17 @@ void PmergeMe::mergeInsertSort(Container& container) {
             tempMain.push_back(pairs[i].second);
         }
         mergeInsertSort(tempMain);
+
+        std::vector<std::pair<int, int> > sortedPairs;
+        for (size_t i = 0; i < tempMain.size(); ++i) {
+            for (size_t j = 0; j < pairs.size(); ++j) {
+                if (pairs[j].second == tempMain[i]) {
+                    sortedPairs.push_back(pairs[j]);
+                    break;
+                }
+            }
+        }
+        pairs = sortedPairs;
     }
 
 
@@ -141,6 +153,8 @@ void PmergeMe::mergeInsertSort(Container& container) {
 
     std::cout << "Main: ";
     printContainer(main);
+
+    // mergeInsertSort(main);
 
 
     Container pend;
@@ -165,11 +179,11 @@ void PmergeMe::mergeInsertSort(Container& container) {
         std::cout << "Pend size: " << pend.size() << '\n';
 
         if (pend.size() > 1) {
-            std::vector<size_t> indices = generateJacobsthalIndices(pend.size() - 1);
+            std::vector<size_t> indices = generateJacobsthalIndices(pend.size());
             std::cout << "Jacobsthal indices: ";
             printContainer(indices);
             for (size_t i = 0; i < indices.size(); ++i) {
-                size_t idx = indices[i] + 1;
+                size_t idx = indices[i];
                 std::cout << "idx = " << idx << '\n';
                 if (idx >= pend.size()) continue;
 
