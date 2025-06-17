@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/13 09:47:17 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/17 14:57:56 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ class PmergeMe {
         void    sortTime(Container1& c1, Container2& c2);
 
         template <typename Container>
-        void    mergeInsertSort(Container& container);
+        void    mergeInsertSort(Container& container, int& comparisonCount);
 
         template <typename Container>
         void    insertSorted(Container& sorted, int value);
