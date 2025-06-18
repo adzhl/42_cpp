@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/18 11:01:37 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/18 11:30:58 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,11 @@
 # include <algorithm>
 
 class PmergeMe {
-    private:
-        int comparisonCount;
-
     public:
         PmergeMe();
         PmergeMe(const PmergeMe& other);
         PmergeMe& operator=(const PmergeMe& other);
         ~PmergeMe();
-
-        int     getComparisonCount() const;
 
         template <typename Container1, typename Container2>
         bool    validInput(const std::vector<std::string>& input, Container1& c1, Container2& c2);
@@ -50,7 +45,7 @@ class PmergeMe {
         void    mergeInsertSort(Container& container, int& comparisonCount);
 
         template <typename Container>
-        void    insertSorted(Container& sorted, int value);
+        void    insertSorted(Container& sorted, int value, int& comparisonCount);
 
 } ;
 
