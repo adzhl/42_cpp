@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:53:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/18 11:31:07 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/18 13:48:58 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ int maxComparison(int argc) {
     return (sum);
 }
 
+
+//  Jn = J(n - 1) + (2 x J(n - 2))
+//  J0 = 0;
+//  J1 = 1;
+//
+// current jacob = prev jacob + 2 * (PREVIOUS previous jacob)
 std::vector<size_t> generateJacobsthalIndices(size_t n) {
     std::vector<size_t> result;
     if (n == 0) return result;
@@ -56,19 +62,17 @@ std::vector<size_t> generateJacobsthalIndices(size_t n) {
     for (size_t i = 1; i < jacobsthal.size(); ++i) {
         size_t current_jacob = jacobsthal[i];
         size_t end_pos = std::min(current_jacob, n);
-        
-        // Insert from end_pos down to prev_jacob + 1 (in descending order)
+
         for (size_t pos = end_pos; pos > prev_jacob; --pos) {
-            result.push_back(pos); // Convert to 0-based index
+            result.push_back(pos);
         }
-        
+
         prev_jacob = current_jacob;
     }
-    
-    // Handle remaining elements if any
+
     for (size_t pos = n; pos > prev_jacob; --pos) {
-        result.push_back(pos); // Convert to 0-based index
+        result.push_back(pos);
     }
 
-    return result;
+    return (result);
 }

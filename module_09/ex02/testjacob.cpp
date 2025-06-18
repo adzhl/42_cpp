@@ -9,13 +9,12 @@ std::vector<size_t> generateJacobsthalIndices(size_t n) {
         return (result);
     }
 
-    // Generate Jacobsthal numbers: 1, 1, 3, 5, 11, 21, 43...
     std::vector<size_t> jacobsthal;
     if (n >= 1) jacobsthal.push_back(1);
-    if (n >= 1) jacobsthal.push_back(1);
+    if (n >= 2) jacobsthal.push_back(3);
     
     size_t a = 1;
-    size_t b = 1;
+    size_t b = 3;
     while (true) {
         size_t next = b + 2 * a;
         if (next > n) break;
@@ -23,27 +22,32 @@ std::vector<size_t> generateJacobsthalIndices(size_t n) {
         a = b;
         b = next;
     }
+    // js = [1, 3, 5]
+    // size = 5
+    // next = 11 > 5 ; break
+    // a = 3
+    // b = 5
 
+    // js = [1, 3, 5]
+    // n = 5
+    // end_pos = 3
     size_t prev_jacob = 1;
     for (size_t i = 1; i < jacobsthal.size(); ++i) {
         size_t current_jacob = jacobsthal[i];
-        // Clamp to available range
         size_t end_pos = std::min(current_jacob, n);
-        
-        // Insert from end_pos down to prev_jacob + 1 (in descending order)
+    
         for (size_t pos = end_pos; pos > prev_jacob; --pos) {
-            result.push_back(pos - 1); // Convert to 0-based index
+            result.push_back(pos);
         }
-        
+
         prev_jacob = current_jacob;
     }
-    
-    // Handle remaining elements if any
+
     for (size_t pos = n; pos > prev_jacob; --pos) {
-        result.push_back(pos - 1); // Convert to 0-based index
+        result.push_back(pos);
     }
 
-    return result;
+    return (result);
 }
 
 int main(int argc, char **argv) {
