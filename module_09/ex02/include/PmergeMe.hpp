@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/17 14:57:56 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/18 09:50:42 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class PmergeMe {
         PmergeMe& operator=(const PmergeMe& other);
         ~PmergeMe();
 
-        int getComparisonCount() const;
+        int     getComparisonCount() const;
 
         template <typename Container1, typename Container2>
         void    validInput(const std::vector<std::string>& input, Container1& c1, Container2& c2);
@@ -54,9 +54,8 @@ class PmergeMe {
 
 } ;
 
-int                maxComparison(int argc);
+int                 maxComparison(int argc);
 std::vector<size_t> generateJacobsthalIndices(size_t n);
-// int      jacobsthal(int n);
 
 # include "PmergeMe.tpp"
 

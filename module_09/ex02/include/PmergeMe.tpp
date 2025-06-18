@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/17 14:59:34 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/18 09:49:51 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,14 @@ void    PmergeMe::validInput(const std::vector<std::string>& input, Container1& 
 template <typename Container1, typename Container2>
 void  PmergeMe::sortTime(Container1& c1, Container2& c2) {
     clock_t startC1 = clock();
+    std::cout << "Initial comparison count: " << comparisonCount << '\n';
     mergeInsertSort(c1, comparisonCount);
     clock_t endC1 = clock();
     std::cout << "Final vector: ";
     printContainer(c1);
 
     clock_t startC2 = clock();
-    // mergeInsertSort(c2);
+    mergeInsertSort(c2, comparisonCount);
     clock_t endC2 = clock();
 
     double timeC1 = (static_cast<double>(endC1 - startC1) / CLOCKS_PER_SEC * 1000000);
@@ -104,10 +105,10 @@ void  PmergeMe::sortTime(Container1& c1, Container2& c2) {
 template <typename Container>
 void PmergeMe::insertSorted(Container& sorted, int value) {
     typename Container::iterator it = std::lower_bound(sorted.begin(), sorted.end(), value);
-    // comparisonCount += std::distance(sorted.begin(), it);
     size_t distance = std::distance(sorted.begin(), it);
     std::cout << "Distance: " << distance << '\n';
-    comparisonCount += static_cast<int>(ceil(log2(distance)));
+    if (distance > 0)
+        comparisonCount += static_cast<int>(ceil(log2(distance)));
     sorted.insert(it, value);
 }
 
@@ -115,6 +116,7 @@ void PmergeMe::insertSorted(Container& sorted, int value) {
 template <typename Container>
 void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
     if (container.size() <= 1) return;
+    std::cout << "enter sorting comparison count: " << comparisonCount << '\n';
 
     bool hasStraggler = (container.size() % 2 != 0);
     int straggler = hasStraggler ? container.back() : 0;
@@ -136,6 +138,7 @@ void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
         std::cout << "temp Main: ";
         printContainer(tempMain);
         mergeInsertSort(tempMain, comparisonCount);
+        std::cout << "recursive calls comparison count: " << comparisonCount << '\n';
 
         std::vector<std::pair<int, int> > sortedPairs;
         for (size_t i = 0; i < tempMain.size(); ++i) {
@@ -173,7 +176,7 @@ void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
 
     Container sorted = main;
     if (!pend.empty()) {
-        insertSorted(sorted, pend[0]);
+        sorted.insert(sorted.begin(), pend[0]);
         // std::cout << "current sorted after pend[0]: ";
         // printContainer(sorted);
 
