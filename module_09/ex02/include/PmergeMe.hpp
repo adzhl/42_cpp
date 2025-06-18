@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:21 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/18 11:30:58 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/18 12:42:38 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ class PmergeMe {
 
 int                 maxComparison(int argc);
 std::vector<size_t> generateJacobsthalIndices(size_t n);
+
+template <typename T>
+void                printContainer(T& container);
+
+template <typename Container>
+bool                isSorted(Container& container);
 
 # include "PmergeMe.tpp"
 

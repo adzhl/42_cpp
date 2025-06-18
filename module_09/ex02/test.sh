@@ -16,10 +16,9 @@ for ((i = 1; i <= RUNS; ++i)); do
 
     OUTPUT=$(./PmergeMe $INPUT 2>&1)
 
-    # Check if the output contains "sorted" or "not sorted"
     SORT_STATUS=$(echo "$OUTPUT" | grep -E "Sorted!|Not sorted!")
     
-    COMP=$(echo "$OUTPUT" | grep "No of comparisons" | sed 's/[^0-9]*//g')
+    COMP=$(echo "$OUTPUT" | grep "No of comparisons for std::vector" | sed 's/[^0-9]*//g')
     THEO=$(echo "$OUTPUT" | grep "Max number of comparisons allowed" | sed 's/[^0-9]*//g')
 
     if [ -z "$COMP" ] || [ -z "$THEO" ]; then
@@ -29,7 +28,6 @@ for ((i = 1; i <= RUNS; ++i)); do
         continue
     fi
 
-    # Check if the array was sorted correctly
     if [[ "$SORT_STATUS" == *"Not sorted!"* ]]; then
         echo "❌ Run $i: Array was not sorted correctly!"
         ((SORT_FAIL++))
