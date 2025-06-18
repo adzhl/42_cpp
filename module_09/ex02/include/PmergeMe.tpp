@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/18 12:54:36 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/18 13:16:00 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,7 @@ void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
         for (size_t i = 0; i < pairs.size(); ++i) {
             tempMain.push_back(pairs[i].second);
         }
-        // std::cout << "temp Main: ";
-        // printContainer(tempMain);
+
         mergeInsertSort(tempMain, comparisonCount);
 
         std::vector<std::pair<int, int> > sortedPairs;
@@ -137,16 +136,10 @@ void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
         main.push_back(pairs[i].second);
     }
 
-    // std::cout << "Main: ";
-    // printContainer(main);
-
     Container pend;
     for (size_t i = 0; i < pairs.size(); ++i) {
         pend.push_back(pairs[i].first);
     }
-
-    // std::cout << "Pend: ";
-    // printContainer(pend);
 
     Container sorted = main;
     if (!pend.empty()) {
@@ -154,20 +147,11 @@ void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
 
         if (pend.size() > 1) {
             std::vector<size_t> indices = generateJacobsthalIndices(pend.size());
-            // std::cout << "Jacobsthal indices: ";
-            // printContainer(indices);
             for (size_t i = 0; i < indices.size(); ++i) {
                 size_t idx = indices[i] - 1;
-                // std::cout << "idx = " << idx << '\n';
                 if (idx >= pend.size()) continue;
 
                 insertSorted(sorted, pend[idx], comparisonCount);
-                // std::cout << "current pend: ";
-                // printContainer(pend);
-                // std::cout << "current main: ";
-                // printContainer(main);
-                // std::cout << "current sorted: ";
-                // printContainer(sorted);
             }
         }
     }
@@ -222,3 +206,89 @@ bool isSorted(Container& container) {
     }
     return (true);
 }
+
+/*********************************************/
+/*                DEBUG                      */
+/*********************************************/
+
+// template <typename Container>
+// void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
+//     if (container.size() <= 1) return;
+
+//     bool hasStraggler = (container.size() % 2 != 0);
+//     int straggler = hasStraggler ? container.back() : 0;
+
+//     std::vector<std::pair<int, int> > pairs;
+//     size_t pairCount = container.size() / 2;
+//     for (size_t i = 0; i < pairCount; ++i) {
+//         comparisonCount++;
+//         if (container[i * 2] < container[i * 2 + 1]) { pairs.push_back(std::make_pair(container[i * 2], container[i * 2 + 1])); }
+
+//         else { pairs.push_back(std::make_pair(container[i * 2 + 1], container[i * 2])); }
+//     }
+
+//     if (pairs.size() > 1) {
+//         Container tempMain;
+//         for (size_t i = 0; i < pairs.size(); ++i) {
+//             tempMain.push_back(pairs[i].second);
+//         }
+//         // std::cout << "temp Main: ";
+//         // printContainer(tempMain);
+//         mergeInsertSort(tempMain, comparisonCount);
+
+//         std::vector<std::pair<int, int> > sortedPairs;
+//         for (size_t i = 0; i < tempMain.size(); ++i) {
+//             for (size_t j = 0; j < pairs.size(); ++j) {
+//                 if (pairs[j].second == tempMain[i]) {
+//                     sortedPairs.push_back(pairs[j]);
+//                     break;
+//                 }
+//             }
+//         }
+//         pairs = sortedPairs;
+//     }
+
+//     Container main;
+//     for (size_t i = 0; i < pairs.size(); ++i) {
+//         main.push_back(pairs[i].second);
+//     }
+
+//     // std::cout << "Main: ";
+//     // printContainer(main);
+
+//     Container pend;
+//     for (size_t i = 0; i < pairs.size(); ++i) {
+//         pend.push_back(pairs[i].first);
+//     }
+
+//     // std::cout << "Pend: ";
+//     // printContainer(pend);
+
+//     Container sorted = main;
+//     if (!pend.empty()) {
+//         sorted.insert(sorted.begin(), pend[0]);
+
+//         if (pend.size() > 1) {
+//             std::vector<size_t> indices = generateJacobsthalIndices(pend.size());
+//             // std::cout << "Jacobsthal indices: ";
+//             // printContainer(indices);
+//             for (size_t i = 0; i < indices.size(); ++i) {
+//                 size_t idx = indices[i] - 1;
+//                 // std::cout << "idx = " << idx << '\n';
+//                 if (idx >= pend.size()) continue;
+
+//                 insertSorted(sorted, pend[idx], comparisonCount);
+//                 // std::cout << "current pend: ";
+//                 // printContainer(pend);
+//                 // std::cout << "current main: ";
+//                 // printContainer(main);
+//                 // std::cout << "current sorted: ";
+//                 // printContainer(sorted);
+//             }
+//         }
+//     }
+//     if (hasStraggler) {
+//         insertSorted(sorted, straggler, comparisonCount);
+//     }
+//     container = sorted;
+// }
