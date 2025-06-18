@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/18 09:49:51 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/18 11:05:07 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void    printContainer(T& container) {
 //          : bool -> whether it has existed yet
 // .second : returns (true) if number hasn't existed
 template <typename Container1, typename Container2>
-void    PmergeMe::validInput(const std::vector<std::string>& input, Container1& c1, Container2& c2) {
+bool    PmergeMe::validInput(const std::vector<std::string>& input, Container1& c1, Container2& c2) {
     std::set<int> check;
 
     for (size_t i = 0; i < input.size(); ++i) {
@@ -70,9 +70,13 @@ void    PmergeMe::validInput(const std::vector<std::string>& input, Container1& 
         c1.push_back(num);
         c2.push_back(num);
     }
-    std::cout << YELLOW << "Before: " << RESET;
+
+    std::cout << YELLOW << "\nBefore: " << RESET;
     printContainer(c1);
-    isSorted(c1) ? std::cout << GREEN << "Sorted!\n" << RESET : std::cout << RED << "Not sorted!\n" << RESET;
+
+    if (isSorted(c1)) { std::cout << GREEN << "\nNumbers are already sorted!\n\n" << RESET; return (false); } 
+    
+    else return (true);
 }
 
 // clock()          : returns CPU time used in clock ticks (system dependent)
@@ -81,11 +85,8 @@ void    PmergeMe::validInput(const std::vector<std::string>& input, Container1& 
 template <typename Container1, typename Container2>
 void  PmergeMe::sortTime(Container1& c1, Container2& c2) {
     clock_t startC1 = clock();
-    std::cout << "Initial comparison count: " << comparisonCount << '\n';
     mergeInsertSort(c1, comparisonCount);
     clock_t endC1 = clock();
-    std::cout << "Final vector: ";
-    printContainer(c1);
 
     clock_t startC2 = clock();
     mergeInsertSort(c2, comparisonCount);
@@ -96,27 +97,25 @@ void  PmergeMe::sortTime(Container1& c1, Container2& c2) {
 
     std::cout << YELLOW << "After: " << RESET;
     printContainer(c1);
+    std::cout << '\n';
     isSorted(c1) ? std::cout << GREEN << "Sorted!\n" << RESET : std::cout << RED << "Not sorted!\n" << RESET;
     std::cout << std::fixed;
-    std::cout << "Time to process a range of " << c1.size() << " elements with std::vector : " << timeC1 << " us\n";
-    std::cout << "Time to process a range of " << c2.size() << " elements with std::deque : " << timeC2 << " us\n";
+    std::cout << "\nTime to process a range of " << c1.size() << " elements with std::vector : " << BLUE << timeC1 << RESET << " µs\n";
+    std::cout << "Time to process a range of " << c2.size() << " elements with std::deque : " << BLUE << timeC2 << RESET << " µs\n";
 }
 
 template <typename Container>
 void PmergeMe::insertSorted(Container& sorted, int value) {
     typename Container::iterator it = std::lower_bound(sorted.begin(), sorted.end(), value);
     size_t distance = std::distance(sorted.begin(), it);
-    std::cout << "Distance: " << distance << '\n';
     if (distance > 0)
         comparisonCount += static_cast<int>(ceil(log2(distance)));
     sorted.insert(it, value);
 }
 
-
 template <typename Container>
 void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
     if (container.size() <= 1) return;
-    std::cout << "enter sorting comparison count: " << comparisonCount << '\n';
 
     bool hasStraggler = (container.size() % 2 != 0);
     int straggler = hasStraggler ? container.back() : 0;
@@ -135,10 +134,9 @@ void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
         for (size_t i = 0; i < pairs.size(); ++i) {
             tempMain.push_back(pairs[i].second);
         }
-        std::cout << "temp Main: ";
-        printContainer(tempMain);
+        // std::cout << "temp Main: ";
+        // printContainer(tempMain);
         mergeInsertSort(tempMain, comparisonCount);
-        std::cout << "recursive calls comparison count: " << comparisonCount << '\n';
 
         std::vector<std::pair<int, int> > sortedPairs;
         for (size_t i = 0; i < tempMain.size(); ++i) {
@@ -152,52 +150,42 @@ void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
         pairs = sortedPairs;
     }
 
-
     Container main;
     for (size_t i = 0; i < pairs.size(); ++i) {
         main.push_back(pairs[i].second);
     }
 
-    std::cout << "Main: ";
-    printContainer(main);
-
-    // mergeInsertSort(main);
-
+    // std::cout << "Main: ";
+    // printContainer(main);
 
     Container pend;
     for (size_t i = 0; i < pairs.size(); ++i) {
         pend.push_back(pairs[i].first);
     }
 
-    std::cout << "Pend size: " << pend.size() << '\n';
-
-    std::cout << "Pend: ";
-    printContainer(pend);
+    // std::cout << "Pend: ";
+    // printContainer(pend);
 
     Container sorted = main;
     if (!pend.empty()) {
         sorted.insert(sorted.begin(), pend[0]);
-        // std::cout << "current sorted after pend[0]: ";
-        // printContainer(sorted);
-
-        std::cout << "Pend size: " << pend.size() << '\n';
 
         if (pend.size() > 1) {
             std::vector<size_t> indices = generateJacobsthalIndices(pend.size());
-            std::cout << "Jacobsthal indices: ";
-            printContainer(indices);
+            // std::cout << "Jacobsthal indices: ";
+            // printContainer(indices);
             for (size_t i = 0; i < indices.size(); ++i) {
-                size_t idx = indices[i];
-                std::cout << "idx = " << idx << '\n';
+                size_t idx = indices[i] - 1;
+                // std::cout << "idx = " << idx << '\n';
                 if (idx >= pend.size()) continue;
 
                 insertSorted(sorted, pend[idx]);
-                std::cout << "current pend: ";
-                printContainer(pend);
-                std::cout << "current main: ";
-                printContainer(main);
-                std::cout << "current sorted: ";
-                printContainer(sorted);
+                // std::cout << "current pend: ";
+                // printContainer(pend);
+                // std::cout << "current main: ";
+                // printContainer(main);
+                // std::cout << "current sorted: ";
+                // printContainer(sorted);
             }
         }
     }

@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:53:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/18 09:51:59 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/18 10:22:51 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ std::vector<size_t> generateJacobsthalIndices(size_t n) {
 
     std::vector<size_t> jacobsthal;
     if (n >= 1) jacobsthal.push_back(1);
-    if (n >= 1) jacobsthal.push_back(1);
+    if (n >= 2) jacobsthal.push_back(3);
     
     size_t a = 1;
-    size_t b = 1;
+    size_t b = 3;
     while (true) {
         size_t next = b + 2 * a;
         if (next > n) break;
@@ -58,12 +58,11 @@ std::vector<size_t> generateJacobsthalIndices(size_t n) {
     size_t prev_jacob = 1;
     for (size_t i = 1; i < jacobsthal.size(); ++i) {
         size_t current_jacob = jacobsthal[i];
-        // Clamp to available range
         size_t end_pos = std::min(current_jacob, n);
         
         // Insert from end_pos down to prev_jacob + 1 (in descending order)
         for (size_t pos = end_pos; pos > prev_jacob; --pos) {
-            result.push_back(pos - 1); // Convert to 0-based index
+            result.push_back(pos); // Convert to 0-based index
         }
         
         prev_jacob = current_jacob;
@@ -71,7 +70,8 @@ std::vector<size_t> generateJacobsthalIndices(size_t n) {
     
     // Handle remaining elements if any
     for (size_t pos = n; pos > prev_jacob; --pos) {
-        result.push_back(pos - 1); // Convert to 0-based index
+        result.push_back(pos); // Convert to 0-based index
     }
-    return (result);
+
+    return result;
 }
