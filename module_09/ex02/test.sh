@@ -13,21 +13,19 @@ SORT_FAIL=0
 
 for ((i = 1; i <= RUNS; ++i)); do
     INPUT=$(shuf -i 1-100000 -n "$RUN_SIZE")
-
     OUTPUT=$(./PmergeMe $INPUT 2>&1)
-
-    SORT_STATUS=$(echo "$OUTPUT" | grep -E "Sorted!|Not sorted!")
     
-    COMP=$(echo "$OUTPUT" | grep "No of comparisons for std::vector" | sed 's/[^0-9]*//g')
-    THEO=$(echo "$OUTPUT" | grep "Max number of comparisons allowed" | sed 's/[^0-9]*//g')
-
-    if [ -z "$COMP" ] || [ -z "$THEO" ]; then
+    SORT_STATUS=$(echo "$OUTPUT" | grep -E "Sorted!|Not sorted!")
+    COMP=$(echo "$OUTPUT" | grep "No of comparisons for std::vector" | grep -o '[0-9]\+$')
+    MAX=$(echo "$OUTPUT" | grep "Max number of comparisons allowed" | grep -o '[0-9]\+$')
+    
+    if [ -z "$COMP" ] || [ -z "$MAX" ]; then
         echo "❌ Run $i: Could not parse output."
         echo "$OUTPUT"
         ((FAIL++))
         continue
     fi
-
+    
     if [[ "$SORT_STATUS" == *"Not sorted!"* ]]; then
         echo "❌ Run $i: Array was not sorted correctly!"
         ((SORT_FAIL++))
@@ -37,11 +35,11 @@ for ((i = 1; i <= RUNS; ++i)); do
         ((SORT_FAIL++))
         ((FAIL++))
     fi
-
-    if [ "$COMP" -le "$THEO" ]; then
-        echo "✅ Run $i: $COMP ≤ $THEO (Status: $SORT_STATUS)"
+    
+    if [ "$COMP" -le "$MAX" ]; then
+        echo "✅ Run $i: $COMP ≤ $MAX (Status: $SORT_STATUS)"
     else
-        echo "❌ Run $i: $COMP > $THEO (Status: $SORT_STATUS)"
+        echo "❌ Run $i: $COMP > $MAX (Status: $SORT_STATUS)"
         ((FAIL++))
     fi
 done
