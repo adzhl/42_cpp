@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:51:17 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/18 11:34:12 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/20 11:11:56 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,21 @@ int main(int argc, char **argv) {
 
     return (0);
 }
+
+// [ Why compare vector with deque? ]
+// Both support random access, O(1)
+// Vector - contiguous, expensive for large datasets
+// Deque - Non-contiguous (chunkss), slower random access, faster at the ends
+// Merge insertion sort inserts in the middle
+
+// [ Key aspects of merge insertion]
+// The role of pairs help reduce the number of comparisons
+
+// [ Jacobsthal sequence ]
+// Determines the optimal insertion order of elements
+// It's cheaper in early insertions but get progressively more expensive
+// Insert large gaps first
+// Reduce average search depth (partially constrained)
+
+// [ Binary insertion ]
+// ensures insertion takes O(log k), k = size of main at insertion
