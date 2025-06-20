@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 09:53:02 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/18 13:48:58 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/20 10:36:23 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ int maxComparison(int argc) {
 // current jacob = prev jacob + 2 * (PREVIOUS previous jacob)
 std::vector<size_t> generateJacobsthalIndices(size_t n) {
     std::vector<size_t> result;
-    if (n == 0) return result;
-    if (n == 1) {
-        result.push_back(1);
-        return (result);
-    }
 
     std::vector<size_t> jacobsthal;
     if (n >= 1) jacobsthal.push_back(1);

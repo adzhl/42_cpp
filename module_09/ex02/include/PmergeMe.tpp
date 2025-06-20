@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/18 13:16:00 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/20 10:43:20 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool    PmergeMe::validInput(const std::vector<std::string>& input, Container1& 
         std::istringstream iss(arg);
         long num;
         iss >> num;
-        if (iss.fail()) throw std::runtime_error("Error: istringstream failed");
+        if (iss.fail() || !iss.eof()) throw std::runtime_error("Error: invalid number format");
 
         else if (num < 0 || num > INT_MAX) throw std::runtime_error("Error: non-positive integer");
 
@@ -161,12 +161,14 @@ void PmergeMe::mergeInsertSort(Container& container, int& comparisonCount) {
     container = sorted;
 }
 
+// Max comparisons = log₂(N + 1)
+// Estimates the worst-case comparisons in binary search
 template <typename Container>
 void PmergeMe::insertSorted(Container& sorted, int value, int& comparisonCount) {
     typename Container::iterator it = std::lower_bound(sorted.begin(), sorted.end(), value);
     size_t distance = std::distance(sorted.begin(), it);
     if (distance > 0)
-        comparisonCount += static_cast<int>(ceil(log2(distance)));
+        comparisonCount += static_cast<int>(ceil(log2(distance + 1)));
     sorted.insert(it, value);
 }
 
