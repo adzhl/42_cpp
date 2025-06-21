@@ -6,7 +6,7 @@
 /*   By: abinti-a <abinti-a@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 11:02:15 by abinti-a          #+#    #+#             */
-/*   Updated: 2025/06/20 10:43:20 by abinti-a         ###   ########.fr       */
+/*   Updated: 2025/06/21 12:06:50 by abinti-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ void PmergeMe::insertSorted(Container& sorted, int value, int& comparisonCount) 
     typename Container::iterator it = std::lower_bound(sorted.begin(), sorted.end(), value);
     size_t distance = std::distance(sorted.begin(), it);
     if (distance > 0)
-        comparisonCount += static_cast<int>(ceil(log2(distance + 1)));
+        comparisonCount += static_cast<int>(ceil(log2(distance)));
     sorted.insert(it, value);
 }
 
