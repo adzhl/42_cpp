@@ -176,7 +176,7 @@ The modules are designed to gradually introduce object-oriented programming conc
 1. Clone this repository:
 
     ```bash
-    git clone github.com/adzhl/42_cpp
+    git clone git@github.com:adzhl/42_cpp.git
     ```
 
 2. Navigate to a module:
